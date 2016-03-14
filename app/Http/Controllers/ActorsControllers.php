@@ -6,6 +6,8 @@ use App\Http\Requests\ActorsRequests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
+
+
 /**
  * Class MoviesControllers
  * @package App\Http\Controllers
@@ -15,6 +17,8 @@ use Illuminate\Support\Facades\Redirect;
  */
 class ActorsControllers extends Controller{
 
+
+
     /**
      * Methode de controller
      * <=> Action de controller
@@ -23,7 +27,7 @@ class ActorsControllers extends Controller{
 
         $actors = Actors::all();
 
-        dump($actors);
+        //dump($actors);
         // retourner une vue
         return view("actors/list", [
             "actors" => $actors
