@@ -24,7 +24,7 @@ class MoviesControllers extends Controller{
         /* all() Récupère tous mes films*/
         $movies = Movies::all();
 
-        dump($movies);
+        //dump($movies);
 
         // retourner une vue
         return view("movies/list",[
@@ -87,7 +87,7 @@ class MoviesControllers extends Controller{
         // var_dump($variable) <=> dump()
         // Deboger mon id
         // dump est une fonction de debogage d'une variable
-        dump($id);
+       // dump($id);
         // Le Transporteur transporte mes données à la vue
         return view("movies/editer",[ 'id' => $id
         ]);

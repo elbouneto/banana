@@ -1,0 +1,41 @@
+.media-author a{
+    color: black;
+    font-size: 2rem;
+}
+
+.sidebar-title:hover{
+    color: orange;
+}
+
+.fa:hover{
+    color: orange;
+}
+
+.glyphicon:hover{
+    color: orange;
+}
+.media-author a:hover{
+    text-decoration: none;
+    color: orange;
+}
+.suppr{
+    color: #666666;
+}
+.suppr:hover{
+    text-decoration: none;
+    color: orange;
+}
+
+.visible{
+    color: #666666;
+}
+
+.glyphicon.glyphicon-eye-close{
+    color: #666666;
+}
+.glyphicon.glyphicon-eye-close:hover{
+    color: orange;
+}
+.formmovie{
+    text-align: center;
+}

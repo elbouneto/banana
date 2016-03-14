@@ -1,46 +1,6 @@
+@extends('layout')
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Page Créer Films</title>
-
-    <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-
-    <style>
-        html, body {
-            height: 100%;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            display: table;
-            font-weight: 100;
-            font-family: 'Lato';
-        }
-        .container {
-            text-align: center;
-        }
-        .content {
-            text-align: center;
-            display: inline-block;
-        }
-        .title {
-            font-size: 60px;
-            color: orange;
-        }
-        .formulaire {
-            text-align: center;
-
-        }
-        .home{
-            text-align: center;
-
-        }
-    </style>
-</head>
-<body>
+@section('content')
 <div class="container">
     <div class="content">
         <div class="title">Créer Film</div>
@@ -48,20 +8,21 @@
 </div>
 </br>
 </br>
-<div class="formulaire">
-    <form method="post" action="{{ route('movies_enregistrer') }}">
+<div class="col-xs-12 col-sm-6 col-md-8">
+    <form class="formmovie" method="post" action="{{ route('movies_enregistrer') }}">
         {{--champs caché--}}
         {{ csrf_field() }}
 
-        <label for="title">Titre:</label>
-        <input  name="title" id="title"/>
+        <input type="text" id="inputStandard" class="form-control" placeholder="Votre Titre">
 
         </br></br>
 
-        <label  for="synopsis">Synopsis:</label>
-        <textarea id = "synopsis" name="synopsis"></textarea>
+        <textarea class="form-control" id="textArea2" placeholder="Votre Synopsis" rows="3"></textarea>
+
+
 
 </br></br>
+
 
         <label for="languages">Langue : </label>
         <input type="radio" name="langue" value="fr"> fr
@@ -90,16 +51,7 @@
 </div>
 
 </form>
-</br>
-</br>
-</br>
-</br>
-<div class="home">
 
-    <a href="{{ route('static_welcome') }}">
-        <button style="color: orange" type="text">Home</button>
-    </a>
-</div>
 @if(count($errors->all()))
     <div class="alert alert-danger">
         <ul>
@@ -110,5 +62,4 @@
     </div>
 @endif
 </body>
-</html>
-
+@endsection

@@ -15,7 +15,8 @@
 
         <!-- Theme CSS -->
         <link rel="stylesheet" type="text/css" href="{{ asset ('assets/skin/default_skin/css/theme.css') }}">
-
+        <!-- Theme CSS -->
+        <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
         <!-- Admin Forms CSS -->
         <link rel="stylesheet" type="text/css" href="{{ asset ('assets/admin-tools/admin-forms/css/admin-forms.min.css') }}">
 
@@ -786,13 +787,13 @@
                         <div class="sidebar-widget author-widget">
                             <div class="media">
                                 <a class="media-left" href="#">
-                                    <img src="assets/img/avatars/3.jpg" class="img-responsive">
+                                    <img src="{{asset("img/bananaa.jpg")}}" class="img-responsive">
                                 </a>
                                 <div class="media-body">
                                     <div class="media-links">
                                         <a href="#" class="sidebar-menu-toggle">User Menu -</a> <a href="pages_login(alt).html">Logout</a>
                                     </div>
-                                    <div class="media-author">Michael Richards</div>
+                                    <div class="media-author"><a href="{{ route('static_welcome') }}">Black Banana</a></div>
                                 </div>
                             </div>
                         </div>
@@ -850,27 +851,75 @@
                     <ul class="nav sidebar-menu">
                         <li class="sidebar-label pt20">Menu</li>
                         <li>
-                            <a href="pages_calendar.html">
-                                <span class="fa fa-calendar"></span>
-                                <span class="sidebar-title">Calendar</span>
-              <span class="sidebar-title-tray">
-                <span class="label label-xs bg-primary">New</span>
-              </span>
+
+                                <a href="{{ route('movies_lister') }}"><span class="fa fa-film">
+
+                                    </span><span class="sidebar-title">Films</span></a>
+
+                        </li>
+                        <li>
+
+                            <a href="{{ route('actors_lister') }}"><span class="fa fa-star">
+
+                                    </span><span class="sidebar-title">Acteurs</span></a>
+
+                        </li>
+                        <li>
+
+                            <a href="{{ route('directors_lister') }}"><span class="fa fa-bullhorn">
+
+                                    </span><span class="sidebar-title">Réalisateurs</span></a>
+
+                        </li>
+                        <li>
+
+                            <a href="{{ route('category_lister') }}"><span class="fa fa-edit">
+
+                                    </span><span class="sidebar-title">Catégories</span></a>
+
+                        </li>
+                        <li>
+                            <a href="https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Accueil_principal" target="_blank">
+                                <span class="glyphicon glyphicon-globe"></span>
+                                <span class="sidebar-title">Wikipédia</span>
                             </a>
                         </li>
                         <li>
-                            <a href="../README/index.html">
-                                <span class="glyphicon glyphicon-book"></span>
-                                <span class="sidebar-title">Documentation</span>
+                            <a href="https://www.youtube.com/?hl=fr&gl=FR" target="_blank">
+                                <span class="fa fa-youtube"></span>
+                                <span class="sidebar-title">You Tube</span>
                             </a>
                         </li>
-                        <li class="active">
-                            <a href="dashboard.html">
-                                <span class="glyphicon glyphicon-home"></span>
-                                <span class="sidebar-title">Dashboard</span>
-                            </a>
+
+                        <li class="sidebar-label pt15">Création</li>
+                        <li>
+
+                            <a href="{{ route('movies_creer') }}"><span class="fa fa-film">
+
+                                    </span><span class="sidebar-title">Créer un Film</span></a>
+
                         </li>
-                        <li class="sidebar-label pt15">Exclusive Tools</li>
+                        <li>
+
+                            <a href="{{ route('actors_creer') }}"><span class="fa fa-star">
+
+                                    </span><span class="sidebar-title">Créer un Acteur</span></a>
+
+                        </li>
+                        <li>
+
+                            <a href="{{ route('directors_creer') }}"><span class="fa fa-bullhorn">
+
+                                    </span><span class="sidebar-title">Créer un Réalisateur</span></a>
+
+                        </li>
+                        <li>
+
+                            <a href="{{ route('category_creer') }}"><span class="fa fa-edit">
+
+                                    </span><span class="sidebar-title">Créer une Catégorie</span></a>
+
+                        </li>
                         <li>
                             <a class="accordion-toggle" href="#">
                                 <span class="fa fa-columns"></span>

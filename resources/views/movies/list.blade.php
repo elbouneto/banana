@@ -4,17 +4,24 @@
 
 <div class="container">
     <div class="content">
-        <div class="title">Liste de nos films</div>
+        <div class="title"><h2>Liste de nos films</h2></div>
     </div>
 </div>
-<p class="creer">
-    <a href="{{ route('movies_creer') }}">
-        Creer un film
-    </a>
+<table class="table table-hover">
+    <thead>
+    <tr>
 
-</p>
+        <th>Image</th>
+        <th>Titre</th>
+        <th>Synopsis</th>
+        <th>Date de sortie</th>
+        <th>Visibilité</th>
+        <th>Supprimer</th>
 
-</br>
+    </tr>
+    </thead>
+
+
 <div class="films">
 @foreach($movies as $movie)
     <h3>
@@ -22,28 +29,31 @@
                 [
                     "id" => $movie->id
                 ]) }}">
-            {{ $movie->title }}
+
         </a>
     </h3>
-    <img style="width: 30%" src="{{ $movie->image }}"/>
 
 
+        <tbody>
 
-    <p>
-
-        @if($movie->visible == 0)
-            <a href="{{route('movies_visible', [
-            "id"=> $movie->id])}}">Visible</a>
-            @else
-        <a href="{{route('movies_visible', [
-        "id"=> $movie->id])}}">Invisible</a>
-            @endif
-    </p>
-
-        <p><a href="{{route('movies_supprimer', ['id' => $movie->id ] )}}">Supprimer</a></p>
+        <tr>
+            <td><img style="width: 70%" src="{{ $movie->image }}"/></td>
+            <td>{{ $movie->title }}</td>
+            <td>{{ $movie->synopsis }}</td>
+            <td>{{ $movie->date_release }}</td>
+            <td>@if($movie->visible == 0)
+                    <a class="visible" href="{{route('movies_visible', [
+            "id"=> $movie->id])}}"><span class="glyphicon glyphicon-eye-open"></span></a>
+                @else
+                    <a href="{{route('movies_visible', [
+        "id"=> $movie->id])}}"><span class="glyphicon glyphicon-eye-close"></span></a>
+                @endif</td>
+            <td><a class="suppr" href="{{route('movies_supprimer', ['id' => $movie->id ] )}}">Supprimer</a></td>
+        </tr>
+        </tbody>
 
     @endforeach
-
+</table>
 </div>
 
     <div class="home">
@@ -51,6 +61,8 @@
         <a href="{{ route('static_welcome') }}">
             <button style="color: orange" type="text">Home</button>
         </a>
+
+
 
 @endsection
 

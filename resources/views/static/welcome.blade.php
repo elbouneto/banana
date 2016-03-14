@@ -2,7 +2,7 @@
 
 @section('content')
 
-<img  src="{{asset("img/banana.jpg")}}"  class="center-block" alt="">
+<img  src="{{asset("img/bananaa.jpg")}}"  class="center-block" alt="">
 
 @endsection
 
