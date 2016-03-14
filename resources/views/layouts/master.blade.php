@@ -22,7 +22,7 @@
         <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
                 <li>
-                    <a class="collapsible-header">Banana<i class="mdi-navigation-arrow-drop-down"></i></a>
+                    <a class="collapsible-header">Laracinema<i class="mdi-navigation-arrow-drop-down"></i></a>
                     <div class="collapsible-body">
                         <ul>
                             <li><a href="{{ route('static_welcome') }}">Home</a></li>
