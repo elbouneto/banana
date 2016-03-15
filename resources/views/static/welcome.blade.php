@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h3><i class="fa fa-dashboard"></i>Dashboard</h3>
+    <h1 class="welcome_laracinema"><img  src="{{asset("img/logoV.png")}}"  class="welcome_logo"> Laracinéma</h1>
     <hr />
 
 

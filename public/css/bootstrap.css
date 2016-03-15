@@ -85,3 +85,12 @@
     background-color: #F0857A !important;
 
 }
+.welcome_laracinema{
+    color: #F0857A;
+    text-align: center;
+    font-family: Century Gothic;
+    font-size: 3.3rem;
+}
+.welcome_logo{
+    width: 5%;
+}
