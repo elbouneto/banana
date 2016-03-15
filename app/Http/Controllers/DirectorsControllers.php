@@ -55,6 +55,13 @@ class DirectorsControllers extends Controller{
 
 
     }
+    public function supprimer($id){
+
+        $actors = Directors::find($id);
+        $actors->delete();
+
+        return Redirect::route('directors_lister');
+    }
 
     public function editer(){
 

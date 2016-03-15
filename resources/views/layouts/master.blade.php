@@ -17,12 +17,12 @@
 <nav>
 
     <ul id="slide-out" class="side-nav">
-        <li><a href="#!">First Sidebar Link</a></li>
-        <li><a href="#!">Second Sidebar Link</a></li>
+        <li><a href="#!"></a></li>
+        <li><a href="#!"></a></li>
         <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
                 <li>
-                    <a class="collapsible-header">Laracinema<i class="mdi-navigation-arrow-drop-down"></i></a>
+                    <a class="collapsible-header">Laracinéma<i class="mdi-navigation-arrow-drop-down"></i></a>
                     <div class="collapsible-body">
                         <ul>
                             <li><a href="{{ route('static_welcome') }}">Home</a></li>
@@ -37,9 +37,9 @@
         </li>
     </ul>
     <ul class="right hide-on-med-and-down">
-        <li><a href="#!">First Sidebar Link</a></li>
-        <li><a href="#!">Second Sidebar Link</a></li>
-        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Banana<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+        <li><a href="#!"></a></li>
+        <li><a href="#!"></a></li>
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Laracinéma<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
         <ul id='dropdown1' class='dropdown-content'>
             <li><a href="{{ route('static_welcome') }}">Home</a></li>
             <li><a href="{{ route('movies_lister') }}">Films</a></li>
@@ -72,7 +72,7 @@
     <div class="container">
         <div class="row">
             <div class="col l6 s12">
-                <h5 class="white-text">Banana</h5>
+                <h5 class="white-text">Laracinéma</h5>
             </div>
             <div class="col l4 offset-l2 s12">
                 <ul>

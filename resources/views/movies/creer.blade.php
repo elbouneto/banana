@@ -1,13 +1,13 @@
 @extends('layout')
 
 @section('content')
+
 <div class="container">
     <div class="content">
-        <div class="title">Créer Film</div>
+        <div class="titlelistfilm"><h2>Créer Film</h2></div>
     </div>
 </div>
-</br>
-</br>
+<div class="crea">
 <div class="col-xs-12 col-sm-6 col-md-8">
     <form class="formmovie" method="post" action="{{ route('movies_enregistrer') }}">
         {{--champs caché--}}
@@ -22,6 +22,29 @@
 
 
 </br></br>
+
+
+        <div class="radio-custom radio-system mb5">
+            <input id="languages" name="languages" type="radio">
+            <label for="languages">fr</label>
+        </div>
+        <div class="radio-custom radio-system mb5">
+            <input id="languages" name="languages" type="radio">
+            <label for="languages">fr</label>
+        </div>
+        <div class="radio-custom radio-system mb5">
+            <input id="langue" name="langue" type="radio">
+            <label for="languages">fr</label>
+        </div>
+
+
+        <div class="radio-custom radio-system mb5">
+            <input id="radioExample10" name="radioExample10" type="radio">
+            <label for="languages">fr</label>
+            <label for="languages">fr</label>
+            <label for="languages">fr</label>
+        </div>
+
 
 
         <label for="languages">Langue : </label>
@@ -48,9 +71,13 @@
         </br></br>
 
         <button style="color: orange" type="submit">Créer le film</button>
+    </form>
+
 </div>
 
-</form>
+
+
+</div>
 
 @if(count($errors->all()))
     <div class="alert alert-danger">
@@ -61,5 +88,4 @@
         </ul>
     </div>
 @endif
-</body>
 @endsection

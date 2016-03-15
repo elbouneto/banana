@@ -28,10 +28,10 @@ Route::group(['middleware' => ['web']], function () {
 
 
 
+Route::get('/',['as'=> "static_welcome",
+    "uses" => "HomeController@homepage"
 
-Route::get('/',['as'=>'static_welcome', function () {
-    return view('static/welcome');
-}]);
+]);
 
 /*
  * Page contact
@@ -239,6 +239,11 @@ Route::get('/editer', [
         'as' => 'directors_enregistrer',
         'uses' => 'DirectorsControllers@enregistrer'
 
+    ]);
+
+    Route::get('/supprimer/{id}', [
+        'as' => 'directors_supprimer',
+        'uses' => 'DirectorsControllers@supprimer'
     ]);
 
 });

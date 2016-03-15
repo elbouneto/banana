@@ -786,14 +786,14 @@
                         <!-- Sidebar Widget - Author -->
                         <div class="sidebar-widget author-widget">
                             <div class="media">
-                                <a class="media-left" href="#">
-                                    <img src="{{asset("img/bananaa.jpg")}}" class="img-responsive">
+                                <a class="media-left" href="{{ route('static_welcome') }}">
+                                    <img src="{{asset("img/logoV.png")}}" class="img-responsive">
                                 </a>
                                 <div class="media-body">
                                     <div class="media-links">
                                         <a href="#" class="sidebar-menu-toggle">User Menu -</a> <a href="pages_login(alt).html">Logout</a>
                                     </div>
-                                    <div class="media-author"><a href="{{ route('static_welcome') }}">Black Banana</a></div>
+                                    <div class="media-author"><a href="{{ route('static_welcome') }}">Laracinéma</a></div>
                                 </div>
                             </div>
                         </div>
@@ -878,18 +878,6 @@
                                     </span><span class="sidebar-title">Catégories</span></a>
 
                         </li>
-                        <li>
-                            <a href="https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Accueil_principal" target="_blank">
-                                <span class="glyphicon glyphicon-globe"></span>
-                                <span class="sidebar-title">Wikipédia</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.youtube.com/?hl=fr&gl=FR" target="_blank">
-                                <span class="fa fa-youtube"></span>
-                                <span class="sidebar-title">You Tube</span>
-                            </a>
-                        </li>
 
                         <li class="sidebar-label pt15">Création</li>
                         <li>
@@ -920,10 +908,10 @@
                                     </span><span class="sidebar-title">Créer une Catégorie</span></a>
 
                         </li>
-                        <li>
+                        <!--<li>
                             <a class="accordion-toggle" href="#">
                                 <span class="fa fa-columns"></span>
-                                <span class="sidebar-title">Layout Templates</span>
+                                <span class="sidebar-title">Création</span>
                                 <span class="caret"></span>
                             </a>
                             <ul class="nav sub-nav">
@@ -1249,10 +1237,10 @@
                                 <span class="fa fa-envelope-o"></span>
                                 <span class="sidebar-title">Email Templates</span>
                             </a>
-                        </li>
+                        </li> -->
 
                         <!-- sidebar resources -->
-                        <li class="sidebar-label pt20">Elements</li>
+                        <!-- <li class="sidebar-label pt20">Elements</li>
                         <li>
                             <a class="accordion-toggle" href="#">
                                 <span class="glyphicon glyphicon-bell"></span>
@@ -1542,17 +1530,29 @@
                                     </ul>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
 
                         <!-- sidebar bullets -->
-                        <li class="sidebar-label pt20">Projects</li>
-                        <li class="sidebar-proj">
+                        <li class="sidebar-label pt20">Liens</li>
+                        <!--<li class="sidebar-proj">
                             <a href="#projectOne">
                                 <span class="fa fa-dot-circle-o text-primary"></span>
                                 <span class="sidebar-title">Website Redesign</span>
                             </a>
+                        </li>-->
+                        <li>
+                            <a href="https://www.youtube.com/?hl=fr&gl=FR" target="_blank">
+                                <span class="fa fa-youtube"></span>
+                                <span class="sidebar-title">You Tube</span>
+                            </a>
                         </li>
-                        <li class="sidebar-proj">
+                        <li>
+                            <a href="https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Accueil_principal" target="_blank">
+                                <span class="glyphicon glyphicon-globe"></span>
+                                <span class="sidebar-title">Wikipédia</span>
+                            </a>
+                        </li>
+                        <!--<li class="sidebar-proj">
                             <a href="#projectTwo">
                                 <span class="fa fa-dot-circle-o text-info"></span>
                                 <span class="sidebar-title">Ecommerce Panel</span>
@@ -1569,7 +1569,7 @@
                                 <span class="fa fa-dot-circle-o text-warning"></span>
                                 <span class="sidebar-title">SSD Upgrades</span>
                             </a>
-                        </li>
+                        </li>-->
 
                         <!-- sidebar progress bars -->
                         <li class="sidebar-label pt25 pb10">User Stats</li>
