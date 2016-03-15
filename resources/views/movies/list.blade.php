@@ -4,19 +4,19 @@
 
 <div class="container">
     <div class="content">
-        <div class="title"><h2>Liste de nos films</h2></div>
+        <div class="titlelistfilm"><h2>Liste de nos films</h2></div>
     </div>
 </div>
 <table class="table table-hover">
     <thead>
-    <tr>
+    <tr class="movielister">
 
-        <th>Image</th>
-        <th>Titre</th>
-        <th>Synopsis</th>
-        <th>Date de sortie</th>
-        <th>Visibilité</th>
-        <th>Supprimer</th>
+        <th><h3>Image</h3></th>
+        <th><h3>Titre</h3></th>
+        <th><h3>Synopsis</h3></th>
+        <th><h3>Date</h3></th>
+        <th><h3>Visibilité</h3></th>
+        <th><h3>Supprimer</h3></th>
 
     </tr>
     </thead>
@@ -36,19 +36,19 @@
 
         <tbody>
 
-        <tr>
+        <tr class="movieItems">
             <td><img style="width: 70%" src="{{ $movie->image }}"/></td>
             <td>{{ $movie->title }}</td>
-            <td>{{ $movie->synopsis }}</td>
+            <td class="movietext">{{ $movie->synopsis }}</td>
             <td>{{ $movie->date_release }}</td>
             <td>@if($movie->visible == 0)
                     <a class="visible" href="{{route('movies_visible', [
-            "id"=> $movie->id])}}"><span class="glyphicon glyphicon-eye-open"></span></a>
+            "id"=> $movie->id])}}"><h3><span class="glyphicon glyphicon-eye-open"></span></h3></a>
                 @else
                     <a href="{{route('movies_visible', [
-        "id"=> $movie->id])}}"><span class="glyphicon glyphicon-eye-close"></span></a>
+        "id"=> $movie->id])}}"><h3><span class="glyphicon glyphicon-eye-close"></span></h3></a>
                 @endif</td>
-            <td><a class="suppr" href="{{route('movies_supprimer', ['id' => $movie->id ] )}}">Supprimer</a></td>
+            <td><h4><a class="suppr" href="{{route('movies_supprimer', ['id' => $movie->id ] )}}">Supprimer</a></h4></td>
         </tr>
         </tbody>
 
@@ -56,11 +56,7 @@
 </table>
 </div>
 
-    <div class="home">
 
-        <a href="{{ route('static_welcome') }}">
-            <button style="color: orange" type="text">Home</button>
-        </a>
 
 
 

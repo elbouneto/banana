@@ -4,32 +4,35 @@
 
 <div class="container">
     <div class="content">
-        <div class="title">Liste des acteurs</div>
+        <div class="titlelistfilm"><h2>Liste des acteurs</h2></div>
     </div>
 </div>
+
+<table class="table table-hover">
+    <thead>
+    <tr class="movielister">
+
+        <th><h3>Photo</h3></th>
+        <th><h3>Nom</h3></th>
+        <th><h3>Prénom</h3></th>
+        <th><h3>Supprimer</h3></th>
+
+    </tr>
+    </thead>
 
 
 <div class="actors">
 
     @foreach($actors as $actor)
-        <h5>{{ $actor->firstname }}</h5>
-        <p>{{ $actor->lastname }}</p>
-        <img style="width: 30%" src="{{ $actor->image }}"/>
-
-        <p><a href="{{route('actors_supprimer', ['id' => $actor->id ] )}}">Supprimer</a></p>
-
+        <tbody>
+            <tr class="movieItems">
+                <td><img style="width: 30%" src="{{ $actor->image }}"/></td>
+                <td><h4>{{ $actor->firstname }}</h4></td>
+                <td><h4>{{ $actor->lastname }}</h4></td>
+                <td><h4><a class="suppr" href="{{route('actors_supprimer', ['id' => $actor->id ] )}}">Supprimer</a></h4><td>
+            </tr>
+        </tbody>
     @endforeach
 </div>
-</body>
-<footer>
-    </br>
-    </br>
-    <div class="home">
 
-        <a href="{{ route('static_welcome') }}">
-            <button style="color: orange" type="text">Home</button>
-        </a>
-    </div>
-</footer>
-</html>
 @endsection

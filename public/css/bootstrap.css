@@ -1,29 +1,29 @@
 .media-author a{
-    color: black;
+    color: white;
     font-size: 2rem;
 }
 
 .sidebar-title:hover{
-    color: orange;
+    color: #F0857A;
 }
 
 .fa:hover{
-    color: orange;
+    color: #F0857A;
 }
 
 .glyphicon:hover{
-    color: orange;
+    color: #F0857A;
 }
 .media-author a:hover{
     text-decoration: none;
-    color: orange;
+    color: #F0857A;
 }
 .suppr{
     color: #666666;
 }
 .suppr:hover{
     text-decoration: none;
-    color: orange;
+    color: #F0857A;
 }
 
 .visible{
@@ -34,8 +34,54 @@
     color: #666666;
 }
 .glyphicon.glyphicon-eye-close:hover{
-    color: orange;
+    color: #F0857A;
 }
 .formmovie{
     text-align: center;
+}
+.movielister{
+    color:#BC589D;
+    font-size: 1.4rem;
+    background-color:#48BBB9;
+
+}
+.movielister th{
+    text-align: center;
+}
+.movieItems td{
+    text-align: center;
+
+}
+.titlelistfilm{
+    color: #48BBB9;
+}
+.table-hover > tbody > tr:hover > td,
+.table-hover > tbody > tr:hover > th {
+
+    background-color: #48BBB9 !important;
+    color: white;
+
+}
+.movietext{
+    text-align: left !important;
+}
+.crea{
+    text-align: center;
+}
+
+.panel-body.bg-danger.rose{
+    background-color: #C91240 !important;
+}
+.panel-body.bg-warning.bleu{
+    background-color: #48BBB9 !important;
+
+}
+
+.panel-body.bg-danger.violet{
+    background-color: #BC589D !important;
+
+}
+.panel-body.bg-warning.chair{
+    background-color: #F0857A !important;
+
 }

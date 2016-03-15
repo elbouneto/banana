@@ -10,6 +10,7 @@ namespace App;
 
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class Movies
@@ -24,4 +25,30 @@ class Movies extends Model
      * @var string
      */
     protected $table = "movies";
+
+    /**
+     * Récupérer les films actifs
+     */
+
+    public function getNbMoviesActifs(){
+      /**   SELECT COUNT(*) as ncurses_baudrate()
+            FROM movies
+            WHERE visible = 1
+       */
+        $nb = DB::table('movies')
+            ->where('visible', 1)
+            ->count();
+        return $nb;
+
+
+    }
+
+    public function getNbMovies(){
+
+        $nbtotal = DB::table('movies')
+            ->count();
+
+        return $nbtotal;
+    }
+
 }

@@ -23,7 +23,7 @@ class CategoryControllers extends Controller{
 
         $category = Category::all();
 
-        dump($category);
+        //dump($category);
 
         // retourner une vue
         return view("category/list", [

@@ -1,52 +1,37 @@
 @extends('layout')
 
 @section('content')
+
 <div class="container">
     <div class="content">
-        <div class="title"><h2>Categories de films</h2></div>
+        <div class="titlelistfilm"><h2>Categories de films</h2></div>
     </div>
 </div>
-</br>
 
-<table class="table">
-    <thead>
-    <tr class="warning">
+    <table class="table table-hover">
+        <thead>
+        <tr class="movielister">
 
-        <th>Titre</th>
-        <th>Description</th>
-        <th>Supprimer</th>
-        <th>
-            <code></code>
-        </th>
-    </tr>
-    </thead>
+            <th><h3>Titre</h3></th>
+            <th><h3>Description</h3></th>
+            <th><h3>Supprimer</h3></th>
+
+        </tr>
+        </thead>
 <div class="category">
     @foreach($category as $category)
 
 
         <tbody>
-        <tr>
-            <td>{{ $category->title }}</td>
-            <td>{{ $category->description }}</td>
-            <td><a href="{{route("category_supprimer", ['id' => $category->id ] )}}">Supprimer</a></td>
+        <tr class="movieItems">
+            <td><h4>{{ $category->title }}</h4></td>
+            <td><h4>{{ $category->description }}</h4></td>
+            <td><h4><a class="suppr" href="{{route("category_supprimer", ['id' => $category->id ] )}}">Supprimer</a></h4></td>
         </tr>
-
+        </tbody>
 
 
     @endforeach
 </table>
 
-</div>
-</body>
-<footer>
-    </br>
-    </br>
-    <div class="home">
-
-        <a href="{{ route('static_welcome') }}">
-            <button style="color: orange" type="text">Home</button>
-        </a>
-    </div>
-</footer>
-</html>
 @endsection
