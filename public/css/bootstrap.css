@@ -88,9 +88,46 @@
 .welcome_laracinema{
     color: #F0857A;
     text-align: center;
-    font-family: Century Gothic;
     font-size: 3.3rem;
 }
 .welcome_logo{
     width: 5%;
+}
+.timeline-icon.bg-dark.rose{
+    background-color: #C91240 !important;
+
+}
+.timeline-icon.bg-dark.bleu{
+    background-color: #48BBB9 !important;
+
+}
+.timeline-icon.bg-dark.violet{
+    background-color: #BC589D !important;
+
+}
+.timeline-icon.bg-dark.chair{
+    background-color: #F0857A !important;
+
+}
+.panel-title{
+    color:#F0857A;
+}
+.panel-icon{
+    color:#48BBB9;
+}
+.progress-bar.progress-bar-info{
+    background-color:#F0857A ;
+}
+.fa.fa-inbox.text-info{
+    color:#F0857A;
+}
+.progress-bar.progress-bar-warning{
+    background-color:#48BBB9 ;
+
+}
+.fa.fa-dropbox.text-warning{
+    color:#48BBB9;
+}
+.caption{
+    color:#48BBB9;
 }

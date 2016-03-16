@@ -908,6 +908,7 @@
                                     </span><span class="sidebar-title">Créer une Catégorie</span></a>
 
                         </li>
+
                         <!--<li>
                             <a class="accordion-toggle" href="#">
                                 <span class="fa fa-columns"></span>
@@ -1240,17 +1241,32 @@
                         </li> -->
 
                         <!-- sidebar resources -->
-                        <!-- <li class="sidebar-label pt20">Elements</li>
+                       <li class="sidebar-label pt20">Utilisateurs</li>
+
                         <li>
+
+                            <a href="{{ route('user_lister') }}"><span class="fa fa-group">
+
+                                    </span><span class="sidebar-title">Lister les Utilisateurs</span></a>
+
+                        </li>
+                        <li>
+
+                            <a href="{{ route('user_creer') }}"><span class="fa fa-user">
+
+                                    </span><span class="sidebar-title">Créer un Utilisateur</span></a>
+
+                        </li>
+                        <!--<li>
                             <a class="accordion-toggle" href="#">
-                                <span class="glyphicon glyphicon-bell"></span>
-                                <span class="sidebar-title">UI Elements</span>
+                                <span class="fa fa-group"></span>
+                                <span class="sidebar-title">Utilisateurs</span>
                                 <span class="caret"></span>
                             </a>
                             <ul class="nav sub-nav">
                                 <li>
                                     <a href="ui_alerts.html">
-                                        <span class="fa fa-warning"></span> Alerts </a>
+                                        <span class="fa fa-warning"></span> Créer </a>
                                 </li>
                                 <li>
                                     <a href="ui_animations.html">
@@ -1286,7 +1302,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li>
+                        <!--<li>
                             <a class="accordion-toggle" href="#">
                                 <span class="glyphicon glyphicon-hdd"></span>
                                 <span class="sidebar-title">Form Elements</span>
@@ -1572,7 +1588,7 @@
                         </li>-->
 
                         <!-- sidebar progress bars -->
-                        <li class="sidebar-label pt25 pb10">User Stats</li>
+                        <li class="sidebar-label pt25 pb10">Stats</li>
                         <li class="sidebar-stat">
                             <a href="#projectOne" class="fs11">
                                 <span class="fa fa-inbox text-info"></span>
@@ -1588,7 +1604,7 @@
                         <li class="sidebar-stat">
                             <a href="#projectOne" class="fs11">
                                 <span class="fa fa-dropbox text-warning"></span>
-                                <span class="sidebar-title text-muted">Bandwidth</span>
+                                <span class="sidebar-title text-muted">Dropbox</span>
                                 <span class="pull-right mr20 text-muted">58%</span>
                                 <div class="progress progress-bar-xs mh20">
                                     <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 58%">

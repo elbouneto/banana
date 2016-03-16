@@ -51,4 +51,36 @@ class Movies extends Model
         return $nbtotal;
     }
 
+    public function getDureeMoyenMovie()
+    {
+        $moyenmovie = DB::table('movies')
+            ->AVG('duree');
+
+        return round($moyenmovie);
+    }
+
+    public function getNextSeance()
+    {
+        $nextseance = DB::table('movies')
+            ->where('date_release','>',DB::raw('NOW()'));
+
+
+        return count($nextseance);
+    }
+
+    public function getSumBudget()
+    {
+        $sumbudget = DB::table('movies')
+            ->SUM('budget');
+
+        return $sumbudget;
+    }
+
+    public function getNotePress()
+    {
+        $notepress = DB::table('movies')
+            ->AVG('note_presse');
+
+        return $notepress;
+    }
 }

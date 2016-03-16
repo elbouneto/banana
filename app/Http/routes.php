@@ -249,6 +249,44 @@ Route::get('/editer', [
 });
 
 
+    /**
+     * UserControllers
+     */
+    Route::group(['prefix' => 'user'], function() {
 
+
+        Route::get('/lister', [
+            'as' => 'user_lister',
+            'uses' => 'UserControllers@lister'
+
+        ]);
+
+        Route::get('/voir', [
+            'uses' => 'UserControllers@voir'
+
+        ]);
+
+        Route::get('/creer', [
+            'as' => 'user_creer',
+            'uses' => 'UserControllers@creer'
+
+        ]);
+
+        Route::get('/editer', [
+            'uses' => 'UserControllers@editer'
+
+        ]);
+        Route::post('/enregistrer', [
+            'as' => 'user_enregistrer',
+            'uses' => 'UserControllers@enregistrer'
+
+        ]);
+
+        Route::get('/supprimer/{id}', [
+            'as' => 'user_supprimer',
+            'uses' => 'UserControllers@supprimer'
+        ]);
+
+    });
 
 });
