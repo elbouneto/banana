@@ -26,7 +26,7 @@ class HomeController extends Controller
         $actors = new Actors();
 
         $directors = new Directors();
-
+git 
 
         $nb = $movie->getNbMoviesActifs();
         $nbtotal=$movie->getNbMovies();
