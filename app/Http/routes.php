@@ -70,6 +70,10 @@ Route::get('/apropos', function() {
 
 Route::group(['prefix' => 'movies'], function(){
 
+    Route::get('panier/{id}', [
+        'as' => 'movies_panier',
+        'uses' => 'MoviesControllers@panier'
+    ]);
 
 Route::get('/lister', [
     'as' => 'movies_lister',

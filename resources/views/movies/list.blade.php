@@ -11,6 +11,7 @@
     <thead>
     <tr class="movielister">
 
+        <th><h3>Like</h3></th>
         <th><h3>Image</h3></th>
         <th><h3>Titre</h3></th>
         <th><h3>Synopsis</h3></th>
@@ -37,6 +38,19 @@
         <tbody>
 
         <tr class="movieItems">
+            <td><a href="{{ route("movies_panier", [
+             'id' => $movie->id
+             ]) }}">
+                    @if(!array_key_exists($movie->id, session('id_movies', [])))
+                    <i class="fa fa-heart like"></i>
+                    @else
+                    <i class="fa fa-heart-o like"></i>
+                        @endif
+                </a>
+            </td>
+
+
+
             <td><img style="width: 70%" src="{{ $movie->image }}"/></td>
             <td>{{ $movie->title }}</td>
             <td class="movietext">{{ $movie->synopsis }}</td>

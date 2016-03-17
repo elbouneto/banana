@@ -11,8 +11,9 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Directors;
 use App\Movies;
-
+use App\Sessions;
 use App\Actors;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -26,7 +27,11 @@ class HomeController extends Controller
         $actors = new Actors();
 
         $directors = new Directors();
-git
+
+        $nextsessions = new Sessions();
+
+        $lastuser = new User();
+
 
         $nb = $movie->getNbMoviesActifs();
         $nbtotal=$movie->getNbMovies();
@@ -39,6 +44,9 @@ git
         $notepress = $movie->getNotePress();
         $nbcategory = $category->getNbCategory();
         $nbdirectors = $directors->getNbDirectors();
+        $nextsessions = $nextsessions->getnextsession();
+        $lastuser = $lastuser->getlastuser();
+
 
         return view('static/welcome', [
             'nb' => $nb,
@@ -51,7 +59,9 @@ git
             'sumbudget' => $sumbudget,
             'notepress' => $notepress,
             'nbcategory' => $nbcategory,
-            'nbdirectors' => $nbdirectors
+            'nbdirectors' => $nbdirectors,
+            'nextsessions' => $nextsessions,
+            'lastuser' => $lastuser
         ]);
 
     }

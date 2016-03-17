@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
@@ -28,7 +29,17 @@ class User extends Authenticatable
 
 
 
+public function getlastuser(){
 
+    $lastuser=DB::table('user')
+        ->select('avatar','created_at','username','ville')
+        ->where('enabled',1)
+        ->orderBy('avatar')
+        ->limit(12)
+        ->get();
+
+    return $lastuser;
+}
 
 
 

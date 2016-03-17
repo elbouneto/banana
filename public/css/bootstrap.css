@@ -131,3 +131,27 @@
 .caption{
     color:#48BBB9;
 }
+.cine{
+    color:#BC589D !important;
+}
+.cineville{
+    color:#48BBB9 !important;
+    text-decoration: none;
+}
+.user-avatar{
+    border-color: #F0857A !important;
+    height: 100px !important;
+    max-width: 100% !important;
+
+}
+.col-md-3.square {
+    width:120px;
+    height: 159px;
+}
+.fa.fa-heart.like{
+    color: #F0857A;
+}
+.fa.fa-heart-o.like{
+    color: #F0857A !important;
+
+}

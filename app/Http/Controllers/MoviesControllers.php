@@ -19,12 +19,16 @@ class MoviesControllers extends Controller{
      * Methode de controller
      * <=> Action de controller
      */
-    public function lister(){
+    public function lister(Request $request){
 
         /* all() Récupère tous mes films*/
         $movies = Movies::all();
 
         //dump($movies);
+
+        $id_movies = $request->session()->get('id_movies');
+
+        //dump($id_movies);
 
         // retourner une vue
         return view("movies/list",[
@@ -77,11 +81,6 @@ class MoviesControllers extends Controller{
 
     }
 
-
-
-
-
-
     public function editer($id){
 
         // var_dump($variable) <=> dump()
@@ -112,5 +111,31 @@ class MoviesControllers extends Controller{
         $movies->delete();
 
         return Redirect::route('movies_lister');
+    }
+
+    public function panier(Request $request, $id){
+        $movies = Movies::find($id);
+
+        //1.enregistrer en session l'id
+        // la requete fait appel a la session et put() permet d'enregistrer en session
+        // a base d'une clé : id_movies , et d'une valeur: $id
+
+        //get() je recupere en session mon tableau
+        //par sa cle 'id_movies'
+        // si mon tableau n'existe pas en session
+        // j'initialise un tableau vide
+
+        $tab = $request->session()->get('id_movies', []);
+        $tab[$id] = $movies->title; //ajouter mon id dans ce tableau
+
+
+        // Enregistrer mon tableau de movies
+        $request->session()->put('id_movies', $tab);
+
+        //2.rediriger vers la liste des films
+
+        return Redirect::route('movies_lister');
+
+
     }
 }
