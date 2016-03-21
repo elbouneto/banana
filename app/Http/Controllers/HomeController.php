@@ -46,6 +46,7 @@ class HomeController extends Controller
         $nbdirectors = $directors->getNbDirectors();
         $nextsessions = $nextsessions->getnextsession();
         $lastuser = $lastuser->getlastuser();
+        $trailer = $movie->video();
 
 
         return view('static/welcome', [
@@ -61,7 +62,8 @@ class HomeController extends Controller
             'nbcategory' => $nbcategory,
             'nbdirectors' => $nbdirectors,
             'nextsessions' => $nextsessions,
-            'lastuser' => $lastuser
+            'lastuser' => $lastuser,
+            'trailer' => $trailer
         ]);
 
     }

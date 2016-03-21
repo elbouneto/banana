@@ -1,77 +1,50 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Page Créer actors</title>
+@extends('layout')
 
-    <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+@section('content')
 
-    <style>
-        html, body {
-            height: 100%;
-        }
 
-        body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            display: table;
-            font-weight: 100;
-            font-family: 'Lato';
-        }
-        .container {
-            text-align: center;
-        }
-        .content {
-            text-align: center;
-            display: inline-block;
-        }
-        .title {
-            font-size: 60px;
-            color: orange;
-        }
-        .formulaire {
-            text-align: center;
-
-        }
-        .home{
-            text-align: center;
-
-        }
-    </style>
-</head>
-<body>
-<div class="container">
-    <div class="content">
-        <div class="title">Créer des acteurs</div>
+    <div class="container">
+        <div class="content">
+            <div class="titlelistfilm"><h2>Créer un acteur</h2></div>
+        </div>
     </div>
-</div>
+
 </br>
 </br>
 <div class="formulaire">
-    <form method="post" action="{{ route('actors_enregistrer') }}">
+    <div class="col-xs-12 col-sm-6 col-md-8">
+    <form method="post"
+          enctype="multipart/form-data"
+          action="{{ route('actors_enregistrer') }}">
         {{--champs caché--}}
         {{ csrf_field() }}
 
+        </br></br>
+
         <label for="firstname">Prénom: </label>
-        <input name="firstname" id="firstname" />
+        <input class="form-control" name="firstname" id="firstname" />
+
+        </br>
+        </br>
 
         <label for="lastname">Nom: </label>
-        <input name="lastname" id="lastname" />
+        <input class="form-control" name="lastname" id="lastname" />
 
-        <button style="color: orange" type="submit">Créer cet acteur</button>
+        </br>
+        </br>
+
+
+        <label for="title">Image: </label>
+        <input type="file" capture="capture" accept="image/*" name="image" id="image" />
+
+        </br>
+        </br>
+    <button style="color: #F0857A" type="submit">Créer un Acteur</button>
+
+    </form>
+    </div>
 </div>
 
-</form>
-</br>
-</br>
-</br>
-</br>
-    <div class="home">
-
-        <a href="{{ route('static_welcome') }}">
-            <button style="color: orange" type="text">Home</button>
-        </a>
-    </div>
 @if(count($errors->all()))
     <div class="alert alert-danger">
         <ul>
@@ -81,6 +54,5 @@
         </ul>
     </div>
 @endif
-</body>
-</html>
 
+@endsection

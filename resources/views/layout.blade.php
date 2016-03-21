@@ -216,22 +216,72 @@
                                 <div class="panel mbn">
                                     <div class="panel-menu">
                                         <span class="panel-icon"><i class="fa fa-clock-o"></i></span>
-                                        <span class="panel-title fw600"> Panier</span>
-                                        <button class="btn btn-default light btn-xs pull-right" type="button"><i class="fa fa-refresh"></i></button>
+                                        <span class="panel-title fw600">Vous avez {{ count(session("id_movies")) }} Films</span>
+                                        <a class="btn btn-default light btn-xs pull-right" href="{{ route("movies_vider") }}"><i class="fa fa-refresh"></i></a>
                                     </div>
                                     <div class="panel-body panel-scroller scroller-navbar scroller-overlay scroller-pn pn">
                                         <ol class="timeline-list">
-                                            @foreach(session('id_movies', []) as $movies)
+                                            @foreach(session('id_movies', []) as $key=> $movies)
                                             <li class="timeline-item">
                                                 <div class="timeline-icon bg-dark light">
                                                     <span class="fa fa-tags"></span>
                                                 </div>
                                                 <div class="timeline-desc">
-                                                    {{ $movies }}
+                                                    <span class="panel-icon">
+
+                                                        <b>{{ $movies }}</b> Added to his store:
+                                                    </span>
+                                                    <a href="{{ route("movies_supr", [ 'id'=>$key]) }}">
+                                                        <i class="fa fa-times"></i>
+                                                    </a>
+
                                                 </div>
 
                                             </li>
                                            @endforeach
+                                        </ol>
+
+                                    </div>
+                                    <div class="panel-footer text-center p7">
+                                        <a href="#" class="link-unstyled"> View All </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dropdown menu-merge">
+                        <div class="navbar-btn btn-group">
+                            <button data-toggle="dropdown" class="btn btn-sm dropdown-toggle">
+                                <span class="glyphicon glyphicon-shopping-cart fs14 va-m"></span>
+                                <span class="badge badge-danger">{{ count(session('id_actors')) }}</span>
+                            </button>
+                            <div class="dropdown-menu dropdown-persist w350 animated animated-shorter fadeIn" role="menu">
+                                <div class="panel mbn">
+                                    <div class="panel-menu">
+                                        <span class="panel-icon"><i class="fa fa-clock-o"></i></span>
+                                        <span class="panel-title fw600">Vous avez {{ count(session("id_actors")) }} Films</span>
+                                        <a class="btn btn-default light btn-xs pull-right" href="{{ route("actors_actualiser") }}"><i class="fa fa-refresh"></i></a>
+                                    </div>
+                                    <div class="panel-body panel-scroller scroller-navbar scroller-overlay scroller-pn pn">
+                                        <ol class="timeline-list">
+                                            @foreach(session('id_actors', []) as $key=> $actors)
+                                                <li class="timeline-item">
+                                                    <div class="timeline-icon bg-dark light">
+                                                        <span class="fa fa-tags"></span>
+                                                    </div>
+                                                    <div class="timeline-desc">
+                                                    <span class="panel-icon">
+
+                                                        <b>{{ $actors }}</b> Added to his store:
+                                                    </span>
+                                                        <a href="{{ route("actors_suppr", [ 'id'=>$key]) }}">
+                                                            <i class="fa fa-times"></i>
+                                                        </a>
+
+                                                    </div>
+
+                                                </li>
+                                            @endforeach
                                         </ol>
 
                                     </div>

@@ -1,35 +1,49 @@
-@extends('layouts.master')
+@extends('layout')
 
 @section('content')
 
+
 <div class="container">
     <div class="content">
-        <div class="title">Créer des réalisateurs</div>
+        <div class="titlelistfilm"><h2>Créer un Réalisateur</h2></div>
     </div>
 </div>
 </br>
 </br>
 <div class="formulaire">
-    <form method="post" action="{{ route('directors_enregistrer') }}">
+
+    <div class="col-xs-12 col-sm-6 col-md-8">
+
+    <form method="post"
+          enctype="multipart/form-data"
+          action="{{ route('directors_enregistrer') }}">
         {{--champs caché--}}
         {{ csrf_field() }}
 
+        </br></br>
+
         <label for="firstname">Prénom: </label>
-        <input name="firstname" id="firstname" />
+        <input type="text" id="inputStandard" name="firstname" class="form-control" id="firstname" />
+
+        </br></br>
 
         <label for="lastname">Nom: </label>
-        <input name="lastname" id="lastname" />
+        <input type="text" id="inputStandard" name="lastname" class="form-control" id="lastname" />
+
+        </br></br>
 
         <label  for="biography">Biography:</label>
-        <textarea id = "biography" name="biography"></textarea>
+        <textarea name="biography" class="form-control" id="textArea2" placeholder="Votre Description" rows="3"></textarea>
 
-        <label for="lastname">Nom: </label>
-        <input name="lastname" id="lastname" />
+        </br> </br>
 
-</br>
-        </br>
+        <label for="title">Image: </label>
+        <input type="file" capture="capture" accept="image/*" name="image" id="image" />
 
-        <button style="color: orange" type="submit">Créer ce réalisateur</button>
+        </br></br>
+
+
+        <button style="color: #F0857A" type="submit">Créer ce réalisateur</button>
 </div>
 
 </form>

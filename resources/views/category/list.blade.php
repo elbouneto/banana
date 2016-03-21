@@ -12,6 +12,7 @@
         <thead>
         <tr class="movielister">
 
+            <th><h3>Image</h3></th>
             <th><h3>Titre</h3></th>
             <th><h3>Description</h3></th>
             <th><h3>Supprimer</h3></th>
@@ -24,6 +25,7 @@
 
         <tbody>
         <tr class="movieItems">
+            <td><img style="width: 25%" src="{{ $category->image }}"/></td>
             <td><h4>{{ $category->title }}</h4></td>
             <td><h4>{{ $category->description }}</h4></td>
             <td><h4><a class="suppr" href="{{route("category_supprimer", ['id' => $category->id ] )}}">Supprimer</a></h4></td>

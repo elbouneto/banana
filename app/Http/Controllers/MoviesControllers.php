@@ -138,4 +138,23 @@ class MoviesControllers extends Controller{
 
 
     }
+
+    public function supr(Request $request, $id){
+
+        $tab = $request->session()->get('id_movies', []);
+
+        unset($tab[$id]);
+
+        $request->session()->put('id_movies', $tab);
+
+        return Redirect::route('movies_lister');
+    }
+
+    public function vider(Request $request){
+
+        $request->session()->forget('id_movies');
+
+        return Redirect::route('movies_lister');
+    }
+
 }

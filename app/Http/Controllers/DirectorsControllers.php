@@ -46,7 +46,19 @@ class DirectorsControllers extends Controller{
 
         $lastname = $request->lastname;
 
+        $file = $request->image;
+
         $directors = new Directors();
+
+        if($request->hasFile('image')){
+            $filename = $file->getClientOriginalName();
+            $destinationPath = public_path().'/uploads/directors';
+
+            $file->move($destinationPath, $filename);
+
+            $directors->image = asset('uploads/directors/'.$filename);
+        }
+
         $directors->firstname = $firstname;
         $directors->lastname = $lastname;
         $directors->save();

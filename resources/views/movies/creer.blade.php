@@ -23,54 +23,54 @@
 
 </br></br>
 
+        <div>
+        <h5>Langue</h5>
+        <label class="radio-inline mr10">
+            <input name="langue" id="langue" value="fr" type="radio"> Français
+        </label>
+        <label class="radio-inline mr10">
+            <input name="langue" id="langue" value="en" type="radio"> Anglais
+        </label>
+        <label class="radio-inline mr10">
+            <input name="langue" id="langue" value="es" type="radio"> Espagnol
+        </label>
 
-        <div class="radio-custom radio-system mb5">
-            <input id="languages" name="languages" type="radio">
-            <label for="languages">fr</label>
         </div>
-        <div class="radio-custom radio-system mb5">
-            <input id="languages" name="languages" type="radio">
-            <label for="languages">fr</label>
-        </div>
-        <div class="radio-custom radio-system mb5">
-            <input id="langue" name="langue" type="radio">
-            <label for="languages">fr</label>
-        </div>
-
-
-        <div class="radio-custom radio-system mb5">
-            <input id="radioExample10" name="radioExample10" type="radio">
-            <label for="languages">fr</label>
-            <label for="languages">fr</label>
-            <label for="languages">fr</label>
-        </div>
-
-
-
-        <label for="languages">Langue : </label>
-        <input type="radio" name="langue" value="fr"> fr
-        <input type="radio" name="langue" value="en"> en
-        <input type="radio" name="langue" value="es"> es
 
         </br></br>
 
-        <label for="bo">Bo : </label>
-        <input type="radio" name="bo" value="vo"> vo
-        <input type="radio" name="bo" value="vost"> vost
-        <input type="radio" name="bo" value="vostfr"> vostfr
+        <div>
+        <h5>Bo</h5>
+        <label class="radio-inline mr10">
+            <input name="bo" id="bo" value="vo" type="radio"> Version Originale
+        </label>
+        <label class="radio-inline mr10">
+            <input name="bo" id="bo" value="vost" type="radio"> Version Originale Sous-Titrée
+        </label>
+        <label class="radio-inline mr10">
+            <input name="bo" id="bo" value="vostfr" type="radio"> Version Originale Sous-Titrée Français
+        </label>
+
+        </div>
+        </br></br>
+
+
+        <label  for="annee">Année</label>
+        <input class="form-control" id="annee" name="annee"/>
+
+        </br></br>
+        <label  for="date_release">Date de sortie</label>
+        <input  class="form-control" id="date_release" name="date_release"/>
 
         </br></br>
 
-        <label  for="annee">Annee:</label>
-        <input  id="annee" name="annee"/>
+        <label for="title">Image: </label>
+        <input type="file" capture="capture" accept="image/*" name="image" id="image" />
 
-        </br></br>
-        <label  for="date_release">date_release:</label>
-        <input  id="date_release" name="date_release"/>
+        </br>
+        </br>
 
-        </br></br>
-
-        <button style="color: orange" type="submit">Créer le film</button>
+        <button style="color: #F0857A" type="submit">Créer le film</button>
     </form>
 
 </div>

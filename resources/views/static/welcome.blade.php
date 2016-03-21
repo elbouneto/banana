@@ -211,6 +211,56 @@
                 </li>
             </ul>
         </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-heading">
+    <span class="panel-icon">
+      <i class="fa fa-clock-o"></i>
+    </span>
+                    <span class="panel-title"> Derniers commentaires</span>
+                </div>
+                <div class="panel-body ptn pbn p10">
+                    <ol class="timeline-list">
+                        @foreach($nextsessions as $sessions)
+
+                            <li class="timeline-item">
+                                <div class="timeline-icon bg-dark rose">
+                                    <span class="fa fa-user"></span>
+                                </div>
+
+                                <div class="timeline-desc">
+
+                                    <b class="cine">{!!$sessions->cinetitle!!}</b> diffusé a
+                                    <a class="cineville">{!!$sessions->cineville !!}</a>
+                                </div>
+                                <div class="timeline-date">{!!$sessions->date_session!!}</div>
+                            </li>
+                        @endforeach
+
+                    </ol>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-heading">
+    <span class="panel-icon">
+      <i class="fa fa-clock-o"></i>
+    </span>
+                    <span class="panel-title">Video</span>
+                </div>
+                <div class="panel-body ptn pbn p10">
+                    <ol class="timeline-list">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            {!!$trailer->trailer!!}
+                        </div>
+
+
+                    </ol>
+                </div>
+            </div>
+
+        </div>
 
 
     </div>

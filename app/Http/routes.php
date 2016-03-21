@@ -75,6 +75,16 @@ Route::group(['prefix' => 'movies'], function(){
         'uses' => 'MoviesControllers@panier'
     ]);
 
+    Route::get('vider', [
+        'as' => 'movies_vider',
+        'uses' => 'MoviesControllers@vider'
+    ]);
+
+    Route::get('supr/{id}', [
+        'as' => 'movies_supr',
+        'uses' => 'MoviesControllers@supr'
+    ]);
+
 Route::get('/lister', [
     'as' => 'movies_lister',
     'uses' => 'MoviesControllers@lister'
@@ -175,10 +185,26 @@ Route::group(['prefix' => 'category'], function() {
 
 Route::group(['prefix' => 'actors'], function() {
 
+    Route::get('panier/{id}', [
+        'as' => 'actors_panier',
+        'uses' => 'ActorsControllers@panier'
+    ]);
 
     Route::get('/lister', [
         'as' => 'actors_lister',
         'uses' => 'ActorsControllers@lister'
+
+    ]);
+
+    Route::get('/suppr/{id}', [
+        'as' => 'actors_suppr',
+        'uses' => 'ActorsControllers@suppr'
+
+    ]);
+
+    Route::get('/actualiser', [
+        'as' => 'actors_actualiser',
+        'uses' => 'ActorsControllers@actualiser'
 
     ]);
 

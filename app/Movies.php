@@ -83,4 +83,12 @@ class Movies extends Model
 
         return $notepress;
     }
+
+    public function video(){
+        $trailer = DB::table('movies')
+            ->orderByRaw("RAND()")
+                ->take(1)
+                ->first();
+        return $trailer;
+    }
 }

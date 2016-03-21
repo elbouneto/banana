@@ -84,4 +84,31 @@ class ActorsControllers extends Controller{
         ]);
     }
 
+    public function actualiser(Request $request)
+    {
+        $request->session()->forget('id_actors');
+
+        return Redirect::route('actors_lister');
+    }
+
+    public function suppr(Request $request, $id)
+    {
+        $tab = $request->session()->get('id_actors', []);
+
+        unset($tab[$id]);
+
+        $request->session()->put('id_actors', $tab);
+
+        return Redirect::route('actors_lister');
+    }
+
+    public function panier(Request $request, $id){
+
+        $actors = Actors::find($id);
+
+        $tab = $request->session()->get('id_actors', []);
+        $tab[$id] = $actors->title;
+        $request->session()->put('id_actors', $tab);
+        return Redirect::route('actors_lister');
+    }
 }
