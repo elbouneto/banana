@@ -51,7 +51,9 @@
 
 
 
-            <td><img style="width: 70%" src="{{ $movie->image }}"/></td>
+            <td><a href="{{ route("movies_voir", [
+            'id' => $movie->id
+            ]) }}"><img style="width: 70%" src="{{ $movie->image }}"/></a></td>
             <td>{{ $movie->title }}</td>
             <td class="movietext">{{ $movie->synopsis }}</td>
             <td>{{ $movie->date_release }}</td>

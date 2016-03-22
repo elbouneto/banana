@@ -81,4 +81,14 @@ class DirectorsControllers extends Controller{
         return view("directors/editer",[ 'id' => $id
         ]);    }
 
+    public function panier(Request $request, $id){
+
+        $director = Directors::find($id);
+
+        $tab = $request->session()->get('id_directors', []);
+        $tab[$id] = $director->title;
+        $request->session()->put('id_directors', $tab);
+        return Redirect::route('directors_lister');
+    }
+
 }

@@ -167,10 +167,10 @@
         <div id="main">
 
             <!-- Start: Header -->
-            <header class="navbar navbar-fixed-top navbar-shadow">
+            <header class="navbar navbar-fixed-top navbar-shadow perso">
                 <div class="navbar-branding">
-                    <a class="navbar-brand" href="dashboard.html">
-                        <b>Absolute</b>Admin
+                    <a class="navbar-brand laracinema" href="{{ route('static_welcome') }}">
+                        Lara<b>cinéma</b>
                     </a>
                     <span id="toggle_sidemenu_l" class="ad ad-lines"></span>
                 </div>
@@ -671,26 +671,23 @@
                             <ul class="dropdown-menu pv5 animated animated-short flipInX" role="menu">
                                 <li>
                                     <a href="javascript:void(0);">
-                                        <span class="flag-xs flag-in mr10"></span> Hindu </a>
+                                        <span class="flag-xs flag-fr mr10"></span> Français </a>
                                 </li>
+
                                 <li>
                                     <a href="javascript:void(0);">
-                                        <span class="flag-xs flag-tr mr10"></span> Turkish </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">
-                                        <span class="flag-xs flag-es mr10"></span> Spanish </a>
+                                        <span class="flag-xs flag-es mr10"></span> Español </a>
                                 </li>
                             </ul>
                         </div>
                     </li>
                     <li class="menu-divider hidden-xs">
-                        <i class="fa fa-circle"></i>
+
                     </li>
                     <li class="dropdown menu-merge">
                         <a href="#" class="dropdown-toggle fw600 p15" data-toggle="dropdown">
-                            <img src="assets/img/avatars/1.jpg" alt="avatar" class="mw30 br64">
-                            <span class="hidden-xs pl15"> Michael .R </span>
+                            <img src="{{asset("img/homer.png")}}"  alt="avatar" class="mw45 br64">
+                            <span class="hidden-xs pl15"> Chez Oim </span>
                             <span class="caret caret-tp hidden-xs"></span>
                         </a>
                         <ul class="dropdown-menu list-group dropdown-persist w250" role="menu">
@@ -749,7 +746,7 @@
             <aside id="sidebar_left" class="nano nano-light affix">
 
                 <!-- Start: Sidebar Left Content -->
-                <div class="sidebar-left-content nano-content">
+                <div class="sidebar-left-content nano-content perso">
 
                     <!-- Start: Sidebar Header -->
                     <header class="sidebar-header">
@@ -764,7 +761,7 @@
                                     <div class="media-links">
                                         <a href="#" class="sidebar-menu-toggle">User Menu -</a> <a href="pages_login(alt).html">Logout</a>
                                     </div>
-                                    <div class="media-author"><a href="{{ route('static_welcome') }}">Laracinéma</a></div>
+                                    <div class="media-author user"><h3>Chez Oim</h3></div>
                                 </div>
                             </div>
                         </div>

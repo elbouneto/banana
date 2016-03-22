@@ -243,6 +243,10 @@ Route::group(['prefix' => 'actors'], function() {
  */
 Route::group(['prefix' => 'directors'], function() {
 
+    Route::get('panier/{id}', [
+        'as' => 'directors_panier',
+        'uses' => 'DirectorsControllers@panier'
+    ]);
 
 Route::get('/lister', [
     'as' => 'directors_lister',
@@ -283,6 +287,11 @@ Route::get('/editer', [
      * UserControllers
      */
     Route::group(['prefix' => 'user'], function() {
+
+        Route::get('panier/{id}', [
+            'as' => 'user_panier',
+            'uses' => 'UserControllers@panier'
+        ]);
 
 
         Route::get('/lister', [

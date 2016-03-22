@@ -63,4 +63,13 @@ class UserControllers extends  Controller
               return view("users/editer",[ 'id' => $id
         ]);
     }
+    public function panier(Request $request, $id){
+
+        $user = User::find($id);
+
+        $tab = $request->session()->get('id_user', []);
+        $tab[$id] = $user->title;
+        $request->session()->put('id_user', $tab);
+        return Redirect::route('user_lister');
+    }
 }

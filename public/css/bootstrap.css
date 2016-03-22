@@ -155,3 +155,22 @@
     color: #F0857A !important;
 
 }
+.navbar.navbar-fixed-top.navbar-shadow.perso {
+    background-color: #F0857A !important;
+
+}
+.navbar-brand.laracinema{
+    color: #C91240 !important;
+    font-size: 2.5rem;
+
+}
+.navbar-brand.laracinema:hover{
+    color: #48BBB9 !important;
+}
+.col-md-8.films{
+    text-align: center;
+}
+.titrefilmcenter{
+    text-align: center;
+
+}
