@@ -33,6 +33,16 @@ Route::get('/',['as'=> "static_welcome",
 
 ]);
 
+    Route::get('/compte', [
+        "as" => "compte",
+     "uses" =>'HomeController@compte'
+    ]);
+
+    Route::post('/compte', [
+        "as" => "modifier",
+        "uses" =>'HomeController@modifier'
+    ]);
+
 /*
  * Page contact
  * contact => URI (bout de l'url)
@@ -328,4 +338,12 @@ Route::get('/editer', [
 
     });
 
+});
+
+
+
+Route::group(['middleware' => 'web'], function () {
+    Route::auth();
+
+    Route::get('/home', 'HomeController@index');
 });

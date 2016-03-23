@@ -686,8 +686,8 @@
                     </li>
                     <li class="dropdown menu-merge">
                         <a href="#" class="dropdown-toggle fw600 p15" data-toggle="dropdown">
-                            <img src="{{asset("img/homer.png")}}"  alt="avatar" class="mw45 br64">
-                            <span class="hidden-xs pl15"> Chez Oim </span>
+                            <img src="{{ Auth::user()->photo }}"  alt="avatar" class="mw45 br64">
+                            <span class="hidden-xs pl15"> {{ Auth::user()->firstname." ". Auth::user()->lastname }} </span>
                             <span class="caret caret-tp hidden-xs"></span>
                         </a>
                         <ul class="dropdown-menu list-group dropdown-persist w250" role="menu">
@@ -733,7 +733,7 @@
                                     <span class="fa fa-gear"></span> Settings </a>
                             </li>
                             <li class="dropdown-footer">
-                                <a href="#" class="">
+                                <a href="{{ url('/logout') }}" class="">
                                     <span class="fa fa-power-off pr5"></span> Logout </a>
                             </li>
                         </ul>
@@ -755,13 +755,13 @@
                         <div class="sidebar-widget author-widget">
                             <div class="media">
                                 <a class="media-left" href="{{ route('static_welcome') }}">
-                                    <img src="{{asset("img/logoV.png")}}" class="img-responsive">
+                                    <img src=" {{ Auth::user()->photo }} " class="img-responsive">
                                 </a>
                                 <div class="media-body">
                                     <div class="media-links">
-                                        <a href="#" class="sidebar-menu-toggle">User Menu -</a> <a href="pages_login(alt).html">Logout</a>
+                                        <a href="#" class="sidebar-menu-toggle">Utilisateur: </a> <a href="{{ url('/logout') }}">Logout</a>
                                     </div>
-                                    <div class="media-author user"><h3>Chez Oim</h3></div>
+                                    <div class="media-author user"><h3> {{ Auth::user()->firstname." ". Auth::user()->lastname }} </h3></div>
                                 </div>
                             </div>
                         </div>

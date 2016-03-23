@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Administrators;
 use App\User;
+use Illuminate\Support\Facades\Input;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -50,8 +52,23 @@ class AuthController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
+            'firstname' => 'required|max:255',
+            'email' => 'required|email|max:255|unique:administrators',
             'password' => 'required|confirmed|min:6',
+            'description' => 'required|max:900',
+        ],[
+            'name.required' => 'Votre nom est requis',
+            'firstname.required' => 'Votre prénom est requis',
+            'name.max' => 'Votre nom est trop long',
+            'firstname.max' => 'Votre prénom est trop long',
+            'email.unique' => 'Votre email est déja utilisé',
+            'email.required' => 'Votre email est requis',
+            'password.required' => 'Votre mot de passe est requis',
+            'password.min' => 'Votre mot de passe est trop court',
+            'password.confirmed' => 'Votre mot de passe doit être identique',
+            'description.required' => 'Une description est requise',
+            'description.max' => 'Votre description est trop longue'
+
         ]);
     }
 
@@ -62,11 +79,26 @@ class AuthController extends Controller
      * @return User
      */
     protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
+            {
+                // recupere avec la class Input et la methode file()
+                $file = Input::file('photo');
+
+                if(Input::hasFile('photo')){
+
+                    $filename = $file->getClientOriginalName();
+                    // recupere le nom original du fichier
+                    $destinationPath = public_path().'/uploads/administrators';
+                    // indique ou stocker le fichier
+                    $file->move($destinationPath, $filename);
+                }
+        return Administrators::create([
+            'lastname' => $data['name'],
+            'firstname' => $data['firstname'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'description' => $data['description'],
+            'photo' => asset('uploads/administrators/'.$filename),
+
         ]);
     }
 }

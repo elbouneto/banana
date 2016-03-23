@@ -1,13 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: wal01
- * Date: 15/03/16
- * Time: 14:28
- */
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests;
+use Illuminate\Http\Request;
 use App\Category;
 use App\Directors;
 use App\Movies;
@@ -17,8 +13,30 @@ use App\User;
 
 class HomeController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
-    public function homepage(){
+    public function compte(){
+
+        return view('compte');
+    }
+
+    public function modifier(AdministratorRequest $request){
+
+
+
+    }
+
+
+    public function homepage()
+    {
 
         $movie = new Movies();
 
@@ -34,7 +52,7 @@ class HomeController extends Controller
 
 
         $nb = $movie->getNbMoviesActifs();
-        $nbtotal=$movie->getNbMovies();
+        $nbtotal = $movie->getNbMovies();
         $nbactors = $actors->getNbActors();
         $nbfrenchactors = $actors->getNbFrenchActors();
         $moyenage = $actors->getMoyenAgeActors();
@@ -51,7 +69,7 @@ class HomeController extends Controller
 
         return view('static/welcome', [
             'nb' => $nb,
-            'nbtotal'=>$nbtotal,
+            'nbtotal' => $nbtotal,
             'nbactors' => $nbactors,
             'nbfrenchactors' => $nbfrenchactors,
             'moyenage' => $moyenage,
@@ -67,6 +85,7 @@ class HomeController extends Controller
         ]);
 
     }
+
 
 
 
