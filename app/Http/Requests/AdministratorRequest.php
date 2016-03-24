@@ -10,6 +10,7 @@ namespace App\Http\Requests;
 
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class AdministratorRequest extends FormRequest
 {
@@ -19,9 +20,10 @@ class AdministratorRequest extends FormRequest
        return[
            'name' => 'required|max:255',
            'firstname' => 'required|max:255',
-           'email' => 'required|email|max:255|unique:administrators',
-           'password' => 'required|confirmed|min:6',
+           'email' => 'required|email|max:255|unique:administrators,email,'.Auth::user()->id,
+           'password' => 'confirmed|min:6',
            'description' => 'required|max:900',
+           'photo' => 'image',
        ];
 
     }
@@ -36,12 +38,15 @@ class AdministratorRequest extends FormRequest
             'firstname.max' => 'Votre prénom est trop long',
             'email.unique' => 'Votre email est déja utilisé',
             'email.required' => 'Votre email est requis',
-            'password.required' => 'Votre mot de passe est requis',
             'password.min' => 'Votre mot de passe est trop court',
             'password.confirmed' => 'Votre mot de passe doit être identique',
             'description.required' => 'Une description est requise',
             'description.max' => 'Votre description est trop longue'
         ];
+    }
+
+    public function authorize(){
+        return true;
     }
 
 

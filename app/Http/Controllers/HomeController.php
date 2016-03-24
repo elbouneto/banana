@@ -10,6 +10,8 @@ use App\Movies;
 use App\Sessions;
 use App\Actors;
 use App\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class HomeController extends Controller
 {
@@ -28,8 +30,43 @@ class HomeController extends Controller
         return view('compte');
     }
 
-    public function modifier(AdministratorRequest $request){
+    public function modifier(Requests\AdministratorRequest $request){
 
+        $name = $request->name;
+        $firstname = $request->firstname;
+        $photo = $request->photo;
+        $description = $request->description;
+        $email = $request->email;
+        $password = $request->password;
+
+        $user = Auth::user();
+        $user->firstname = $firstname;
+        $user->lastname = $name;
+        $user->description = $description;
+        $user->email = $email;
+
+        if($request->hasFile('photo')){
+            $filename = $photo->getClientOriginalName();
+            // Récupère le nom original du fichier
+            $destinationPath = public_path().'/uploads/administrators';
+            // Indique ou stocker le fichier
+            $photo->move($destinationPath, $filename);
+
+            $user->photo = asset('/uploads/administrators/'.$filename);
+
+        }
+
+        //has() permet de dire si un champ existe et n'est pas vide
+
+        if($request->has('password')){
+
+            $user->password = bcrypt($password);
+
+        }
+
+        $user->save();
+
+        return Redirect::route('static_welcome');
 
 
     }

@@ -10,6 +10,9 @@
 
         <!-- Font CSS (Via CDN) -->
         <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
+        <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,700italic,700,600italic,600,400italic,300italic' rel='stylesheet' type='text/css'>
+
+
         <!-- FullCalendar Plugin CSS -->
         <link rel="stylesheet" type="text/css" href="{{ asset ('vendor/plugins/fullcalendar/fullcalendar.min.css') }}">
 
@@ -770,8 +773,8 @@
                         <div class="sidebar-widget menu-widget">
                             <div class="row text-center mbn">
                                 <div class="col-xs-4">
-                                    <a href="dashboard.html" class="text-primary" data-toggle="tooltip" data-placement="top" title="Dashboard">
-                                        <span class="glyphicon glyphicon-home"></span>
+                                    <a href="{{route('compte')}}" class="text-primary" data-toggle="tooltip" data-placement="top" title="Compte">
+                                        <span class="glyphicon glyphicon-home compte"></span>
                                     </a>
                                 </div>
                                 <div class="col-xs-4">

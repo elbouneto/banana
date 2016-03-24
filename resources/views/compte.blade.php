@@ -22,7 +22,7 @@
                                 <label class="col-md-4 control-label">Nom</label>
 
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" name="name" value="{{ Auth::user()->name }}">
+                                    <input type="text" class="form-control" name="name" value="{{ Auth::user()->lastname }}">
 
                                     @if ($errors->has('name'))
                                         <span class="help-block">
@@ -35,7 +35,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Prénom</label>
 
-                                <div class="col-md-6">
+                                <div class="col-md-6">image
                                     <input type="text" class="form-control" name="firstname" value="{{ Auth::user()->firstname }}">
 
                                 </div>
@@ -49,7 +49,7 @@
 
 
                                 <textarea class="form-control" name="description" id="textArea2" placeholder="" rows="3">
-
+                                    {{ Auth::user()->description }}
                                 </textarea>
 
                                 </div>
@@ -62,6 +62,7 @@
 
                                     <label class="col-md-6 control-label" for="title">Avatar: </label>
                                     <input type="file" capture="capture" accept="photo/*" name="photo" id="photo" />
+                                    <img class="tof-avatar" src="{{ Auth::user()->photo }}" />
 
                                 </div>
 
