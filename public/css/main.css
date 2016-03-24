@@ -1,6 +1,75 @@
 nav,footer{
-    background-color: #C91240 !important;
+    background-color: #F0857A !important;
 }
 .general{
     margin-top: 2rem;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background-image:url('img/laracinema.png') !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.panel-heading.log{
+    color: #48BBB9 !important;
+    text-shadow: 1px 1px 2px #474747;
+
+}
+.lara{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 2.7rem ;
+}
+.lara:hover{
+    color: #48BBB9 !important;
+}
+.logod{
+    text-align: left !important;
+    width: 4.5%;
+    margin-left: 2rem;
+    margin-top: 0.35rem;
+}
+.material-icons{
+    color: #48BBB9 !important;
+
+}
+.material-icons.right.s{
+    color: white !important;
+
+}
+.social.right{
+margin-right: 20rem;
+    font-size: 2.5rem;
+}
+.fa.fa-facebook-square{
+    color: #3E5B99;
+    padding-right: 0.7rem;
+}
+.fa.fa-facebook-square:hover{
+    color: #48BBB9;
+}
+.fa.fa-twitter{
+    color: #5EA9DD;
+    padding-right: 0.7rem;
+}
+.fa.fa-twitter:hover{
+    color: #F0857A;
+}
+.fa.fa-google-plus-square{
+    color: #D54334;
+}
+.fa.fa-google-plus-square:hover{
+    color: #BC589D;
+}
+.fa.fa-picture-o{
+    color: white;
+
 }

@@ -2,9 +2,10 @@
 
 namespace App;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
-class User extends Authenticatable
+class User extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -23,4 +24,23 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    protected $table = "user";
+
+
+
+public function getlastuser(){
+
+    $lastuser=DB::table('user')
+        ->select('avatar','created_at','username','ville')
+        ->where('enabled',1)
+        ->orderBy('avatar')
+        ->limit(12)
+        ->get();
+
+    return $lastuser;
+}
+
+
+
 }

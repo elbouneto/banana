@@ -33,6 +33,16 @@ Route::get('/',['as'=> "static_welcome",
 
 ]);
 
+    Route::get('/compte', [
+        "as" => "compte",
+     "uses" =>'HomeController@compte'
+    ]);
+
+    Route::post('/compte', [
+        "as" => "modifier",
+        "uses" =>'HomeController@modifier'
+    ]);
+
 /*
  * Page contact
  * contact => URI (bout de l'url)
@@ -70,6 +80,20 @@ Route::get('/apropos', function() {
 
 Route::group(['prefix' => 'movies'], function(){
 
+    Route::get('panier/{id}', [
+        'as' => 'movies_panier',
+        'uses' => 'MoviesControllers@panier'
+    ]);
+
+    Route::get('vider', [
+        'as' => 'movies_vider',
+        'uses' => 'MoviesControllers@vider'
+    ]);
+
+    Route::get('supr/{id}', [
+        'as' => 'movies_supr',
+        'uses' => 'MoviesControllers@supr'
+    ]);
 
 Route::get('/lister', [
     'as' => 'movies_lister',
@@ -171,10 +195,26 @@ Route::group(['prefix' => 'category'], function() {
 
 Route::group(['prefix' => 'actors'], function() {
 
+    Route::get('panier/{id}', [
+        'as' => 'actors_panier',
+        'uses' => 'ActorsControllers@panier'
+    ]);
 
     Route::get('/lister', [
         'as' => 'actors_lister',
         'uses' => 'ActorsControllers@lister'
+
+    ]);
+
+    Route::get('/suppr/{id}', [
+        'as' => 'actors_suppr',
+        'uses' => 'ActorsControllers@suppr'
+
+    ]);
+
+    Route::get('/actualiser', [
+        'as' => 'actors_actualiser',
+        'uses' => 'ActorsControllers@actualiser'
 
     ]);
 
@@ -213,6 +253,10 @@ Route::group(['prefix' => 'actors'], function() {
  */
 Route::group(['prefix' => 'directors'], function() {
 
+    Route::get('panier/{id}', [
+        'as' => 'directors_panier',
+        'uses' => 'DirectorsControllers@panier'
+    ]);
 
 Route::get('/lister', [
     'as' => 'directors_lister',
@@ -249,6 +293,57 @@ Route::get('/editer', [
 });
 
 
+    /**
+     * UserControllers
+     */
+    Route::group(['prefix' => 'user'], function() {
+
+        Route::get('panier/{id}', [
+            'as' => 'user_panier',
+            'uses' => 'UserControllers@panier'
+        ]);
 
 
+        Route::get('/lister', [
+            'as' => 'user_lister',
+            'uses' => 'UserControllers@lister'
+
+        ]);
+
+        Route::get('/voir', [
+            'uses' => 'UserControllers@voir'
+
+        ]);
+
+        Route::get('/creer', [
+            'as' => 'user_creer',
+            'uses' => 'UserControllers@creer'
+
+        ]);
+
+        Route::get('/editer', [
+            'uses' => 'UserControllers@editer'
+
+        ]);
+        Route::post('/enregistrer', [
+            'as' => 'user_enregistrer',
+            'uses' => 'UserControllers@enregistrer'
+
+        ]);
+
+        Route::get('/supprimer/{id}', [
+            'as' => 'user_supprimer',
+            'uses' => 'UserControllers@supprimer'
+        ]);
+
+    });
+
+});
+
+
+
+Route::group(['middleware' => 'web'], function () {
+    Route::auth();
+
+    Route::get('/home', 'HomeController@index');
 });

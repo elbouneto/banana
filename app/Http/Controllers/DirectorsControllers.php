@@ -46,7 +46,19 @@ class DirectorsControllers extends Controller{
 
         $lastname = $request->lastname;
 
+        $file = $request->image;
+
         $directors = new Directors();
+
+        if($request->hasFile('image')){
+            $filename = $file->getClientOriginalName();
+            $destinationPath = public_path().'/uploads/directors';
+
+            $file->move($destinationPath, $filename);
+
+            $directors->image = asset('uploads/directors/'.$filename);
+        }
+
         $directors->firstname = $firstname;
         $directors->lastname = $lastname;
         $directors->save();
@@ -68,5 +80,15 @@ class DirectorsControllers extends Controller{
         // retourner une vue
         return view("directors/editer",[ 'id' => $id
         ]);    }
+
+    public function panier(Request $request, $id){
+
+        $director = Directors::find($id);
+
+        $tab = $request->session()->get('id_directors', []);
+        $tab[$id] = $director->title;
+        $request->session()->put('id_directors', $tab);
+        return Redirect::route('directors_lister');
+    }
 
 }

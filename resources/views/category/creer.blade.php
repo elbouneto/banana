@@ -1,81 +1,48 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Page Créer</title>
+@extends('layout')
 
-    <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+@section('content')
 
-    <style>
-        html, body {
-            height: 100%;
-        }
 
-        body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            display: table;
-            font-weight: 100;
-            font-family: 'Lato';
-        }
-        .container {
-            text-align: center;
-        }
-        .content {
-            text-align: center;
-            display: inline-block;
-        }
-        .title {
-            font-size: 60px;
-            color: orange;
-        }
-        .formulaire {
-            text-align: center;
-
-        }
-        .home{
-            text-align: center;
-
-        }
-
-    </style>
-</head>
-<body>
 <div class="container">
     <div class="content">
-        <div class="title">Créer une catégorie</div>
+        <div class="titlelistfilm"><h2>Créer une catégorie</h2></div>
     </div>
 </div>
-
 </br>
 </br>
     <div class="formulaire">
-    <form method="post" action="{{ route('category_enregistrer') }}">
+
+        <div class="col-xs-12 col-sm-6 col-md-8">
+    <form method="post"
+          enctype="multipart/form-data"
+          action="{{ route('category_enregistrer') }}">
+
         {{--champs caché--}}
         {{ csrf_field() }}
 
+
+        <label for="title">Image: </label>
+        <input type="file" capture="capture" accept="image/*" name="image" id="image" />
+
+        </br></br>
+
         <label for="title">Titre: </label>
-        <input name="title" id="title" />
+        <input type="text" id="inputStandard" name="title" class="form-control" placeholder="Votre Titre">
+
+        </br></br>
 
         <label>Description: </label>
-        <textarea id="description" name="description">
 
-        </textarea>
+        <textarea name="description" class="form-control" id="textArea2" placeholder="Votre Description" rows="3"></textarea>
 
-        <button style="color: orange" type="submit">Créer cette catégorie</button>
+
+        </br></br>
+
+        <button style="color: #F0857A" type="submit">Créer cette catégorie</button>
     </div>
     </form>
-
-</br>
-</br>
-</br>
-</br>
-<div class="home">
-
-    <a href="{{ route('static_welcome') }}">
-        <button style="color: orange" type="text">Home</button>
-    </a>
 </div>
+
 @if(count($errors->all()))
     <div class="alert alert-danger">
         <ul>
@@ -86,5 +53,4 @@
     </div>
 @endif
 
-</body>
-</html>
+@endsection

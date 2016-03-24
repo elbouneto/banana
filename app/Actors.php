@@ -36,4 +36,14 @@ class Actors extends Model
 
 
     }
+
+    public function getMoyenAgeActors()
+    {
+      $moyenage = DB::table('actors')
+          ->AVG(DB::raw('TIMESTAMPDIFF(YEAR, dob, NOW())'));
+
+
+        return round($moyenage);
+
+    }
 }

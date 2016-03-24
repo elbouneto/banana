@@ -12,6 +12,7 @@
     <thead>
     <tr class="movielister">
 
+        <th><h3>Like</h3></th>
         <th><h3>Photo</h3></th>
         <th><h3>Nom</h3></th>
         <th><h3>Prénom</h3></th>
@@ -26,7 +27,19 @@
     @foreach($actors as $actor)
         <tbody>
             <tr class="movieItems">
-                <td><img style="width: 30%" src="{{ $actor->image }}"/></td>
+
+                <td><a href="{{ route("actors_panier", [
+             'id' => $actor->id
+             ]) }}">
+                        @if(!array_key_exists($actor->id, session('id_actors', [])))
+                            <i class="fa fa-heart like"></i>
+                        @else
+                            <i class="fa fa-heart-o like"></i>
+                        @endif
+                    </a>
+                </td>
+
+                <td><img style="width: 20%" src="{{ $actor->image }}"/></td>
                 <td><h4>{{ $actor->firstname }}</h4></td>
                 <td><h4>{{ $actor->lastname }}</h4></td>
                 <td><h4><a class="suppr" href="{{route('actors_supprimer', ['id' => $actor->id ] )}}">Supprimer</a></h4><td>

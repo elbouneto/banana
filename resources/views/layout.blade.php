@@ -10,6 +10,9 @@
 
         <!-- Font CSS (Via CDN) -->
         <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
+        <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,700italic,700,600italic,600,400italic,300italic' rel='stylesheet' type='text/css'>
+
+
         <!-- FullCalendar Plugin CSS -->
         <link rel="stylesheet" type="text/css" href="{{ asset ('vendor/plugins/fullcalendar/fullcalendar.min.css') }}">
 
@@ -167,10 +170,10 @@
         <div id="main">
 
             <!-- Start: Header -->
-            <header class="navbar navbar-fixed-top navbar-shadow">
+            <header class="navbar navbar-fixed-top navbar-shadow perso">
                 <div class="navbar-branding">
-                    <a class="navbar-brand" href="dashboard.html">
-                        <b>Absolute</b>Admin
+                    <a class="navbar-brand laracinema" href="{{ route('static_welcome') }}">
+                        Lara<b>cinéma</b>
                     </a>
                     <span id="toggle_sidemenu_l" class="ad ad-lines"></span>
                 </div>
@@ -209,108 +212,79 @@
                     <li class="dropdown menu-merge">
                         <div class="navbar-btn btn-group">
                             <button data-toggle="dropdown" class="btn btn-sm dropdown-toggle">
-                                <span class="fa fa-bell-o fs14 va-m"></span>
-                                <span class="badge badge-danger">9</span>
+                                <span class="glyphicon glyphicon-shopping-cart fs14 va-m"></span>
+                                <span class="badge badge-danger">{{ count(session('id_movies')) }}</span>
                             </button>
                             <div class="dropdown-menu dropdown-persist w350 animated animated-shorter fadeIn" role="menu">
                                 <div class="panel mbn">
                                     <div class="panel-menu">
                                         <span class="panel-icon"><i class="fa fa-clock-o"></i></span>
-                                        <span class="panel-title fw600"> Recent Activity</span>
-                                        <button class="btn btn-default light btn-xs pull-right" type="button"><i class="fa fa-refresh"></i></button>
+                                        <span class="panel-title fw600">Vous avez {{ count(session("id_movies")) }} Films</span>
+                                        <a class="btn btn-default light btn-xs pull-right" href="{{ route("movies_vider") }}"><i class="fa fa-refresh"></i></a>
                                     </div>
                                     <div class="panel-body panel-scroller scroller-navbar scroller-overlay scroller-pn pn">
                                         <ol class="timeline-list">
+                                            @foreach(session('id_movies', []) as $key=> $movies)
                                             <li class="timeline-item">
                                                 <div class="timeline-icon bg-dark light">
                                                     <span class="fa fa-tags"></span>
                                                 </div>
                                                 <div class="timeline-desc">
-                                                    <b>Michael</b> Added to his store:
-                                                    <a href="#">Ipod</a>
+                                                    <span class="panel-icon">
+
+                                                        <b>{{ $movies }}</b> Added to his store:
+                                                    </span>
+                                                    <a href="{{ route("movies_supr", [ 'id'=>$key]) }}">
+                                                        <i class="fa fa-times"></i>
+                                                    </a>
+
                                                 </div>
-                                                <div class="timeline-date">1:25am</div>
+
                                             </li>
-                                            <li class="timeline-item">
-                                                <div class="timeline-icon bg-dark light">
-                                                    <span class="fa fa-tags"></span>
-                                                </div>
-                                                <div class="timeline-desc">
-                                                    <b>Sara</b> Added his store:
-                                                    <a href="#">Notebook</a>
-                                                </div>
-                                                <div class="timeline-date">3:05am</div>
-                                            </li>
-                                            <li class="timeline-item">
-                                                <div class="timeline-icon bg-success">
-                                                    <span class="fa fa-usd"></span>
-                                                </div>
-                                                <div class="timeline-desc">
-                                                    <b>Admin</b> created invoice for:
-                                                    <a href="#">Software</a>
-                                                </div>
-                                                <div class="timeline-date">4:15am</div>
-                                            </li>
-                                            <li class="timeline-item">
-                                                <div class="timeline-icon bg-success">
-                                                    <span class="fa fa-usd"></span>
-                                                </div>
-                                                <div class="timeline-desc">
-                                                    <b>Admin</b> created invoice for:
-                                                    <a href="#">Apple</a>
-                                                </div>
-                                                <div class="timeline-date">7:45am</div>
-                                            </li>
-                                            <li class="timeline-item">
-                                                <div class="timeline-icon bg-success">
-                                                    <span class="fa fa-usd"></span>
-                                                </div>
-                                                <div class="timeline-desc">
-                                                    <b>Admin</b> created invoice for:
-                                                    <a href="#">Software</a>
-                                                </div>
-                                                <div class="timeline-date">4:15am</div>
-                                            </li>
-                                            <li class="timeline-item">
-                                                <div class="timeline-icon bg-success">
-                                                    <span class="fa fa-usd"></span>
-                                                </div>
-                                                <div class="timeline-desc">
-                                                    <b>Admin</b> created invoice for:
-                                                    <a href="#">Apple</a>
-                                                </div>
-                                                <div class="timeline-date">7:45am</div>
-                                            </li>
-                                            <li class="timeline-item">
-                                                <div class="timeline-icon bg-dark light">
-                                                    <span class="fa fa-tags"></span>
-                                                </div>
-                                                <div class="timeline-desc">
-                                                    <b>Michael</b> Added his store:
-                                                    <a href="#">Ipod</a>
-                                                </div>
-                                                <div class="timeline-date">8:25am</div>
-                                            </li>
-                                            <li class="timeline-item">
-                                                <div class="timeline-icon bg-system">
-                                                    <span class="fa fa-fire"></span>
-                                                </div>
-                                                <div class="timeline-desc">
-                                                    <b>Admin</b> created invoice for:
-                                                    <a href="#">Software</a>
-                                                </div>
-                                                <div class="timeline-date">4:15am</div>
-                                            </li>
-                                            <li class="timeline-item">
-                                                <div class="timeline-icon bg-dark light">
-                                                    <span class="fa fa-tags"></span>
-                                                </div>
-                                                <div class="timeline-desc">
-                                                    <b>Sara</b> Added to his store:
-                                                    <a href="#">Notebook</a>
-                                                </div>
-                                                <div class="timeline-date">3:05am</div>
-                                            </li>
+                                           @endforeach
+                                        </ol>
+
+                                    </div>
+                                    <div class="panel-footer text-center p7">
+                                        <a href="#" class="link-unstyled"> View All </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dropdown menu-merge">
+                        <div class="navbar-btn btn-group">
+                            <button data-toggle="dropdown" class="btn btn-sm dropdown-toggle">
+                                <span class="glyphicon glyphicon-shopping-cart fs14 va-m"></span>
+                                <span class="badge badge-danger">{{ count(session('id_actors')) }}</span>
+                            </button>
+                            <div class="dropdown-menu dropdown-persist w350 animated animated-shorter fadeIn" role="menu">
+                                <div class="panel mbn">
+                                    <div class="panel-menu">
+                                        <span class="panel-icon"><i class="fa fa-clock-o"></i></span>
+                                        <span class="panel-title fw600">Vous avez {{ count(session("id_actors")) }} Films</span>
+                                        <a class="btn btn-default light btn-xs pull-right" href="{{ route("actors_actualiser") }}"><i class="fa fa-refresh"></i></a>
+                                    </div>
+                                    <div class="panel-body panel-scroller scroller-navbar scroller-overlay scroller-pn pn">
+                                        <ol class="timeline-list">
+                                            @foreach(session('id_actors', []) as $key=> $actors)
+                                                <li class="timeline-item">
+                                                    <div class="timeline-icon bg-dark light">
+                                                        <span class="fa fa-tags"></span>
+                                                    </div>
+                                                    <div class="timeline-desc">
+                                                    <span class="panel-icon">
+
+                                                        <b>{{ $actors }}</b> Added to his store:
+                                                    </span>
+                                                        <a href="{{ route("actors_suppr", [ 'id'=>$key]) }}">
+                                                            <i class="fa fa-times"></i>
+                                                        </a>
+
+                                                    </div>
+
+                                                </li>
+                                            @endforeach
                                         </ol>
 
                                     </div>
@@ -700,26 +674,23 @@
                             <ul class="dropdown-menu pv5 animated animated-short flipInX" role="menu">
                                 <li>
                                     <a href="javascript:void(0);">
-                                        <span class="flag-xs flag-in mr10"></span> Hindu </a>
+                                        <span class="flag-xs flag-fr mr10"></span> Français </a>
                                 </li>
+
                                 <li>
                                     <a href="javascript:void(0);">
-                                        <span class="flag-xs flag-tr mr10"></span> Turkish </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);">
-                                        <span class="flag-xs flag-es mr10"></span> Spanish </a>
+                                        <span class="flag-xs flag-es mr10"></span> Español </a>
                                 </li>
                             </ul>
                         </div>
                     </li>
                     <li class="menu-divider hidden-xs">
-                        <i class="fa fa-circle"></i>
+
                     </li>
                     <li class="dropdown menu-merge">
                         <a href="#" class="dropdown-toggle fw600 p15" data-toggle="dropdown">
-                            <img src="assets/img/avatars/1.jpg" alt="avatar" class="mw30 br64">
-                            <span class="hidden-xs pl15"> Michael .R </span>
+                            <img src="{{ Auth::user()->photo }}"  alt="avatar" class="mw45 br64">
+                            <span class="hidden-xs pl15"> {{ Auth::user()->firstname." ". Auth::user()->lastname }} </span>
                             <span class="caret caret-tp hidden-xs"></span>
                         </a>
                         <ul class="dropdown-menu list-group dropdown-persist w250" role="menu">
@@ -765,7 +736,7 @@
                                     <span class="fa fa-gear"></span> Settings </a>
                             </li>
                             <li class="dropdown-footer">
-                                <a href="#" class="">
+                                <a href="{{ url('/logout') }}" class="">
                                     <span class="fa fa-power-off pr5"></span> Logout </a>
                             </li>
                         </ul>
@@ -778,7 +749,7 @@
             <aside id="sidebar_left" class="nano nano-light affix">
 
                 <!-- Start: Sidebar Left Content -->
-                <div class="sidebar-left-content nano-content">
+                <div class="sidebar-left-content nano-content perso">
 
                     <!-- Start: Sidebar Header -->
                     <header class="sidebar-header">
@@ -787,13 +758,13 @@
                         <div class="sidebar-widget author-widget">
                             <div class="media">
                                 <a class="media-left" href="{{ route('static_welcome') }}">
-                                    <img src="{{asset("img/logoV.png")}}" class="img-responsive">
+                                    <img src=" {{ Auth::user()->photo }} " class="img-responsive">
                                 </a>
                                 <div class="media-body">
                                     <div class="media-links">
-                                        <a href="#" class="sidebar-menu-toggle">User Menu -</a> <a href="pages_login(alt).html">Logout</a>
+                                        <a href="#" class="sidebar-menu-toggle">Utilisateur: </a> <a href="{{ url('/logout') }}">Logout</a>
                                     </div>
-                                    <div class="media-author"><a href="{{ route('static_welcome') }}">Laracinéma</a></div>
+                                    <div class="media-author user"><h3> {{ Auth::user()->firstname." ". Auth::user()->lastname }} </h3></div>
                                 </div>
                             </div>
                         </div>
@@ -802,8 +773,8 @@
                         <div class="sidebar-widget menu-widget">
                             <div class="row text-center mbn">
                                 <div class="col-xs-4">
-                                    <a href="dashboard.html" class="text-primary" data-toggle="tooltip" data-placement="top" title="Dashboard">
-                                        <span class="glyphicon glyphicon-home"></span>
+                                    <a href="{{route('compte')}}" class="text-primary" data-toggle="tooltip" data-placement="top" title="Compte">
+                                        <span class="glyphicon glyphicon-home compte"></span>
                                     </a>
                                 </div>
                                 <div class="col-xs-4">
@@ -908,6 +879,7 @@
                                     </span><span class="sidebar-title">Créer une Catégorie</span></a>
 
                         </li>
+
                         <!--<li>
                             <a class="accordion-toggle" href="#">
                                 <span class="fa fa-columns"></span>
@@ -1240,17 +1212,32 @@
                         </li> -->
 
                         <!-- sidebar resources -->
-                        <!-- <li class="sidebar-label pt20">Elements</li>
+                       <li class="sidebar-label pt20">Utilisateurs</li>
+
                         <li>
+
+                            <a href="{{ route('user_lister') }}"><span class="fa fa-group">
+
+                                    </span><span class="sidebar-title">Lister les Utilisateurs</span></a>
+
+                        </li>
+                        <li>
+
+                            <a href="{{ route('user_creer') }}"><span class="fa fa-user">
+
+                                    </span><span class="sidebar-title">Créer un Utilisateur</span></a>
+
+                        </li>
+                        <!--<li>
                             <a class="accordion-toggle" href="#">
-                                <span class="glyphicon glyphicon-bell"></span>
-                                <span class="sidebar-title">UI Elements</span>
+                                <span class="fa fa-group"></span>
+                                <span class="sidebar-title">Utilisateurs</span>
                                 <span class="caret"></span>
                             </a>
                             <ul class="nav sub-nav">
                                 <li>
                                     <a href="ui_alerts.html">
-                                        <span class="fa fa-warning"></span> Alerts </a>
+                                        <span class="fa fa-warning"></span> Créer </a>
                                 </li>
                                 <li>
                                     <a href="ui_animations.html">
@@ -1286,7 +1273,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li>
+                        <!--<li>
                             <a class="accordion-toggle" href="#">
                                 <span class="glyphicon glyphicon-hdd"></span>
                                 <span class="sidebar-title">Form Elements</span>
@@ -1572,7 +1559,7 @@
                         </li>-->
 
                         <!-- sidebar progress bars -->
-                        <li class="sidebar-label pt25 pb10">User Stats</li>
+                        <li class="sidebar-label pt25 pb10">Stats</li>
                         <li class="sidebar-stat">
                             <a href="#projectOne" class="fs11">
                                 <span class="fa fa-inbox text-info"></span>
@@ -1588,7 +1575,7 @@
                         <li class="sidebar-stat">
                             <a href="#projectOne" class="fs11">
                                 <span class="fa fa-dropbox text-warning"></span>
-                                <span class="sidebar-title text-muted">Bandwidth</span>
+                                <span class="sidebar-title text-muted">Dropbox</span>
                                 <span class="pull-right mr20 text-muted">58%</span>
                                 <div class="progress progress-bar-xs mh20">
                                     <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 58%">
@@ -1631,6 +1618,334 @@
 
         </div>
         <!-- End: Main -->
+        <!-- BEGIN: PAGE SCRIPTS -->
+
+        <!-- jQuery -->
+        <script src="{{ asset('vendor/jquery/jquery-1.11.1.min.js')  }}"></script>
+        <script src="{{asset('vendor/jquery/jquery_ui/jquery-ui.min.js') }}"></script>
+
+        <!-- HighCharts Plugin -->
+        <script src="{{ asset('vendor/plugins/highcharts/highcharts.js') }}"></script>
+
+        <!-- JvectorMap Plugin + US Map (more maps in plugin/assets folder) -->
+        <script src="{{asset('vendor/plugins/jvectormap/jquery.jvectormap.min.js')  }}"></script>
+        <script src="{{asset('vendor/plugins/jvectormap/assets/jquery-jvectormap-us-lcc-en.js')  }}"></script>
+
+        <!-- FullCalendar Plugin + moment Dependency -->
+        <script src="{{asset('vendor/plugins/fullcalendar/lib/moment.min.js')  }}"></script>
+        <script src="{{asset('vendor/plugins/fullcalendar/fullcalendar.min.js')  }}"></script>
+
+        <!-- Theme Javascript -->
+        <script src="{{asset('assets/js/utility/utility.js')  }}"></script>
+        <script src="{{asset('assets/js/demo/demo.js')  }}"></script>
+        <script src="{{asset('assets/js/main.js')  }}"></script>
+
+        <!-- Widget Javascript -->
+        <script src="{{asset('assets/js/demo/widgets.js')  }}"></script>
+        <script type="text/javascript">
+            jQuery(document).ready(function() {
+
+                "use strict";
+
+                // Init Demo JS
+                Demo.init();
+
+
+                // Init Theme Core
+                Core.init();
+
+
+                // Init Widget Demo JS
+                // demoHighCharts.init();
+
+                // Because we are using Admin Panels we use the OnFinish
+                // callback to activate the demoWidgets. It's smoother if
+                // we let the panels be moved and organized before
+                // filling them with content from various plugins
+
+                // Init plugins used on this page
+                // HighCharts, JvectorMap, Admin Panels
+
+                // Init Admin Panels on widgets inside the ".admin-panels" container
+                $('.admin-panels').adminpanel({
+                    grid: '.admin-grid',
+                    draggable: true,
+                    preserveGrid: true,
+                    // mobile: true,
+                    onStart: function() {
+                        // Do something before AdminPanels runs
+                    },
+                    onFinish: function() {
+                        $('.admin-panels').addClass('animated fadeIn').removeClass('fade-onload');
+
+                        // Init the rest of the plugins now that the panels
+                        // have had a chance to be moved and organized.
+                        // It's less taxing to organize empty panels
+                        demoHighCharts.init();
+                        runVectorMaps(); // function below
+                    },
+                    onSave: function() {
+                        $(window).trigger('resize');
+                    }
+                });
+
+
+                // Init plugins for ".calendar-widget"
+                // plugins: FullCalendar
+                //
+                $('#calendar-widget').fullCalendar({
+                    // contentHeight: 397,
+                    editable: true,
+                    events: [{
+                        title: 'Sony Meeting',
+                        start: '2015-05-1',
+                        end: '2015-05-3',
+                        className: 'fc-event-success',
+                    }, {
+                        title: 'Conference',
+                        start: '2015-05-11',
+                        end: '2015-05-13',
+                        className: 'fc-event-warning'
+                    }, {
+                        title: 'Lunch Testing',
+                        start: '2015-05-21',
+                        end: '2015-05-23',
+                        className: 'fc-event-primary'
+                    },
+                    ],
+                    eventRender: function(event, element) {
+                        // create event tooltip using bootstrap tooltips
+                        $(element).attr("data-original-title", event.title);
+                        $(element).tooltip({
+                            container: 'body',
+                            delay: {
+                                "show": 100,
+                                "hide": 200
+                            }
+                        });
+                        // create a tooltip auto close timer
+                        $(element).on('show.bs.tooltip', function() {
+                            var autoClose = setTimeout(function() {
+                                $('.tooltip').fadeOut();
+                            }, 3500);
+                        });
+                    }
+                });
+
+
+                // Init plugins for ".task-widget"
+                // plugins: Custom Functions + jQuery Sortable
+                //
+                var taskWidget = $('div.task-widget');
+                var taskItems = taskWidget.find('li.task-item');
+                var currentItems = taskWidget.find('ul.task-current');
+                var completedItems = taskWidget.find('ul.task-completed');
+
+                // Init jQuery Sortable on Task Widget
+                taskWidget.sortable({
+                    items: taskItems, // only init sortable on list items (not labels)
+                    handle: '.task-menu',
+                    axis: 'y',
+                    connectWith: ".task-list",
+                    update: function( event, ui ) {
+                        var Item = ui.item;
+                        var ParentList = Item.parent();
+
+                        // If item is already checked move it to "current items list"
+                        if (ParentList.hasClass('task-current')) {
+                            Item.removeClass('item-checked').find('input[type="checkbox"]').prop('checked', false);
+                        }
+                        if (ParentList.hasClass('task-completed')) {
+                            Item.addClass('item-checked').find('input[type="checkbox"]').prop('checked', true);
+                        }
+
+                    }
+                });
+
+                // Custom Functions to handle/assign list filter behavior
+                taskItems.on('click', function(e) {
+                    e.preventDefault();
+                    var This = $(this);
+                    var Target = $(e.target);
+
+                    if (Target.is('.task-menu') && Target.parents('.task-completed').length) {
+                        This.remove();
+                        return;
+                    }
+
+                    if (Target.parents('.task-handle').length) {
+                        // If item is already checked move it to "current items list"
+                        if (This.hasClass('item-checked')) {
+                            This.removeClass('item-checked').find('input[type="checkbox"]').prop('checked', false);
+                        }
+                        // Otherwise move it to the "completed items list"
+                        else {
+                            This.addClass('item-checked').find('input[type="checkbox"]').prop('checked', true);
+                        }
+                    }
+
+                });
+
+
+                var highColors = [bgSystem, bgSuccess, bgWarning, bgPrimary];
+
+                // Chart data
+                var seriesData = [{
+                    name: 'Phones',
+                    data: [5.0, 9, 17, 22, 19, 11.5, 5.2, 9.5, 11.3, 15.3, 19.9, 24.6]
+                }, {
+                    name: 'Notebooks',
+                    data: [2.9, 3.2, 4.7, 5.5, 8.9, 12.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+                }, {
+                    name: 'Desktops',
+                    data: [15, 19, 22.7, 29.3, 22.0, 17.0, 23.8, 19.1, 22.1, 14.1, 11.6, 7.5]
+                }, {
+                    name: 'Music Players',
+                    data: [11, 6, 5, 15, 17.0, 22.0, 30.8, 24.1, 14.1, 11.1, 9.6, 6.5]
+                }];
+
+                var ecomChart = $('#ecommerce_chart1');
+                if (ecomChart.length) {
+                    ecomChart.highcharts({
+                        credits: false,
+                        colors: highColors,
+                        chart: {
+                            backgroundColor: 'transparent',
+                            className: '',
+                            type: 'line',
+                            zoomType: 'x',
+                            panning: true,
+                            panKey: 'shift',
+                            marginTop: 45,
+                            marginRight: 1,
+                        },
+                        title: {
+                            text: null
+                        },
+                        xAxis: {
+                            gridLineColor: '#EEE',
+                            lineColor: '#EEE',
+                            tickColor: '#EEE',
+                            categories: ['Jan', 'Feb', 'Mar', 'Apr',
+                                'May', 'Jun', 'Jul', 'Aug',
+                                'Sep', 'Oct', 'Nov', 'Dec'
+                            ]
+                        },
+                        yAxis: {
+                            min: 0,
+                            tickInterval: 5,
+                            gridLineColor: '#EEE',
+                            title: {
+                                text: null,
+                            }
+                        },
+                        plotOptions: {
+                            spline: {
+                                lineWidth: 3,
+                            },
+                            area: {
+                                fillOpacity: 0.2
+                            }
+                        },
+                        legend: {
+                            enabled: true,
+                            floating: false,
+                            align: 'right',
+                            verticalAlign: 'top',
+                            x: -15
+                        },
+                        series: seriesData
+                    });
+                }
+
+                // Widget VectorMap
+                function runVectorMaps() {
+
+                    // Jvector Map Plugin
+                    var runJvectorMap = function() {
+                        // Data set
+                        var mapData = [900, 700, 350, 500];
+                        // Init Jvector Map
+                        $('#WidgetMap').vectorMap({
+                            map: 'us_lcc_en',
+                            //regionsSelectable: true,
+                            backgroundColor: 'transparent',
+                            series: {
+                                markers: [{
+                                    attribute: 'r',
+                                    scale: [3, 7],
+                                    values: mapData
+                                }]
+                            },
+                            regionStyle: {
+                                initial: {
+                                    fill: '#E8E8E8'
+                                },
+                                hover: {
+                                    "fill-opacity": 0.3
+                                }
+                            },
+                            markers: [{
+                                latLng: [37.78, -122.41],
+                                name: 'San Francisco,CA'
+                            }, {
+                                latLng: [36.73, -103.98],
+                                name: 'Texas,TX'
+                            }, {
+                                latLng: [38.62, -90.19],
+                                name: 'St. Louis,MO'
+                            }, {
+                                latLng: [40.67, -73.94],
+                                name: 'New York City,NY'
+                            }],
+                            markerStyle: {
+                                initial: {
+                                    fill: '#a288d5',
+                                    stroke: '#b49ae0',
+                                    "fill-opacity": 1,
+                                    "stroke-width": 10,
+                                    "stroke-opacity": 0.3,
+                                    r: 3
+                                },
+                                hover: {
+                                    stroke: 'black',
+                                    "stroke-width": 2
+                                },
+                                selected: {
+                                    fill: 'blue'
+                                },
+                                selectedHover: {}
+                            },
+                        });
+                        // Manual code to alter the Vector map plugin to
+                        // allow for individual coloring of countries
+                        var states = ['US-CA', 'US-TX', 'US-MO',
+                            'US-NY'
+                        ];
+                        var colors = [bgInfo, bgPrimaryLr, bgSuccessLr, bgWarningLr];
+                        var colors2 = [bgInfo, bgPrimary, bgSuccess, bgWarning];
+                        $.each(states, function(i, e) {
+                            $("#WidgetMap path[data-code=" + e + "]").css({
+                                fill: colors[i]
+                            });
+                        });
+                        $('#WidgetMap').find('.jvectormap-marker')
+                                .each(function(i, e) {
+                                    $(e).css({
+                                        fill: colors2[i],
+                                        stroke: colors2[i]
+                                    });
+                                });
+                    }
+
+                    if ($('#WidgetMap').length) {
+                        runJvectorMap();
+                    }
+                }
+
+            });
+        </script>
+        <!-- END: PAGE SCRIPTS -->
 
         </body>
 
