@@ -9,8 +9,10 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    background-image:url('img/fond.jpg') !important;
-
+    background-image:url('img/laracinema.png') !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 
 main {
@@ -19,6 +21,7 @@ main {
 
 .panel-heading.log{
     color: #48BBB9 !important;
+    text-shadow: 1px 1px 2px #474747;
 
 }
 .lara{
